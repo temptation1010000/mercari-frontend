@@ -21,14 +21,24 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import re
+import traceback
+
+# 检查是否为生产环境
+IS_PRODUCTION = os.environ.get('FLASK_ENV') == 'production'
 
 # 配置日志
+log_level = logging.INFO if IS_PRODUCTION else logging.DEBUG
 logging.basicConfig(
-    level=logging.INFO,
+    level=log_level,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler("mercari_monitor.log"),
-        logging.StreamHandler()
+        # 在生产环境不输出到控制台
+        logging.StreamHandler() if not IS_PRODUCTION else logging.NullHandler()
     ]
 )
 logger = logging.getLogger(__name__)
@@ -122,6 +132,7 @@ def create_database():
 
 def get_page_content_with_selenium(url):
     try:
+        logger.info(f"使用Selenium开始获取页面: {url}")
         options = Options()
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
@@ -133,12 +144,16 @@ def get_page_content_with_selenium(url):
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
         
+        # 在生产环境中禁止WebDriverManager的输出
+        os.environ['WDM_LOG_LEVEL'] = '0' if IS_PRODUCTION else '20'
+        logger.info("初始化Chrome WebDriver")
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
         
         # 修改webdriver属性，绕过检测
         driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         
+        logger.info(f"开始访问URL: {url}")
         # 添加更多随机行为
         driver.get(url)
         
@@ -148,27 +163,94 @@ def get_page_content_with_selenium(url):
             driver.execute_script(f"window.scrollBy(0, {scroll_amount})")
             time.sleep(random.uniform(1, 3))
         
-        # 等待页面加载
-        time.sleep(random.uniform(5, 10))
+        # 等待页面加载 - 增加更多的等待时间以确保骨架屏消失
+        wait_time = random.uniform(8, 12)
+        logger.info(f"等待页面加载完成: {wait_time:.2f}秒")
+        time.sleep(wait_time)
+        
+        # 尝试等待骨架屏元素消失
+        try:
+            # 尝试等待直到没有骨架屏元素
+            WebDriverWait(driver, 10).until_not(
+                EC.presence_of_element_located((By.CLASS_NAME, "merSkeleton"))
+            )
+            logger.info("骨架屏元素已消失，页面内容完全加载")
+        except Exception as e:
+            logger.warning(f"等待骨架屏消失失败，将继续处理: {str(e)}")
+            # 额外等待几秒尝试确保内容加载
+            time.sleep(5)
+        
+        # 尝试查找内容加载的指标
+        try:
+            loaded_items = driver.find_elements(By.CSS_SELECTOR, '[data-testid="item-cell"] [data-testid="thumbnail-item-name"]')
+            if loaded_items:
+                logger.info(f"已找到 {len(loaded_items)} 个带名称的商品项，页面可能已完全加载")
+            else:
+                logger.warning("未找到商品名称元素，页面可能未完全加载")
+                # 再次随机滚动尝试触发懒加载
+                for i in range(2):
+                    scroll_amount = random.randint(300, 700)
+                    driver.execute_script(f"window.scrollBy(0, {scroll_amount})")
+                    time.sleep(2)
+        except Exception as e:
+            logger.warning(f"检查商品名称元素时出错: {str(e)}")
+        
+        # 仅在非生产环境下保存调试信息
+        if not IS_PRODUCTION:
+            # 截取页面截图，用于调试
+            screenshot_file = "mercari_screenshot.png"
+            driver.save_screenshot(screenshot_file)
+            logger.info(f"已保存页面截图到 {screenshot_file}")
         
         html_content = driver.page_source
+        logger.info(f"成功获取页面源代码，长度: {len(html_content)}")
 
-        # 保存HTML以便检查
-        with open("mercari_debug.html", "w", encoding="utf-8") as f:
-            f.write(html_content)
-            logger.info("已保存HTML内容到mercari_debug.html文件")
+        # 仅在非生产环境下保存HTML
+        if not IS_PRODUCTION:
+            # 保存HTML用于分析
+            with open("mercari_debug.html", "w", encoding="utf-8") as f:
+                f.write(html_content)
+                logger.info("已保存HTML内容到mercari_debug.html文件")
+            
+        # 检查页面上是否包含商品元素
+        item_cells = driver.find_elements(By.CSS_SELECTOR, '[data-testid="item-cell"]')
+        if item_cells:
+            logger.info(f"页面上找到 {len(item_cells)} 个商品元素")
+            
+            # 检查第一个商品的文本
+            if len(item_cells) > 0:
+                try:
+                    first_item_text = item_cells[0].text
+                    logger.debug(f"第一个商品元素文本: {first_item_text[:100]}...")
+                except:
+                    logger.warning("无法获取第一个商品元素文本")
+                    
+            # 检查是否还有骨架屏元素
+            skeleton_elements = driver.find_elements(By.CLASS_NAME, "merSkeleton")
+            if skeleton_elements:
+                logger.warning(f"页面上仍有 {len(skeleton_elements)} 个骨架屏元素，内容可能未完全加载")
 
         # 关闭浏览器
         driver.quit()
+        logger.debug("WebDriver已关闭")
         
+        # 检查页面内容中是否包含关键标识
         if 'item-cell' in html_content:
             logger.info(f"Selenium成功获取页面内容，长度: {len(html_content)}")
             return html_content
         else:
+            # 尝试其他关键标识
+            alternative_identifiers = ['thumbnail-item-name', 'merItemThumbnail', 'href="/item/', 'data-location="search_result']
+            for identifier in alternative_identifiers:
+                if identifier in html_content:
+                    logger.info(f"找到替代标识符 '{identifier}'，页面加载可能成功")
+                    return html_content
+                    
             logger.error("Selenium获取页面不完整，可能被反爬虫机制拦截")
             return None
     except Exception as e:
         logger.error(f"Selenium获取页面失败: {str(e)}")
+        logger.error(traceback.format_exc())
         return None
 
 def parse_products(html):
@@ -207,33 +289,287 @@ def parse_products(html):
         logger.info("已保存HTML到mercari_debug.html文件供分析")
         return []
     
-    for item in items:
+    # 在非生产环境才保存调试文件
+    if not IS_PRODUCTION:
+        # 将整个HTML保存为本地文件，用于调试分析
+        with open("mercari_full_debug.html", "w", encoding="utf-8") as f:
+            f.write(html)
+        logger.info("已保存完整HTML到mercari_full_debug.html文件供分析")
+            
+        # 提取特定商品的示例HTML，用于学习结构
+        if len(items) > 0:
+            with open("mercari_item_example.html", "w", encoding="utf-8") as f:
+                f.write(str(items[0]))
+            logger.info("已保存第一个商品HTML示例到mercari_item_example.html")
+    
+    for item_index, item in enumerate(items):
         try:
-            # 尝试多种可能的名称选择器
-            name = None
+            # 处理骨架屏加载的情况 - 检查是否为骨架屏元素
+            skeleton_elem = item.select_one('.merSkeleton')
+            if skeleton_elem:
+                logger.info("检测到骨架屏元素，这是尚未加载完成的占位符")
+                # 提取商品信息时使用默认值或从链接中提取的ID
+                link_elem = item.select_one('a[href*="/item/"]')
+                if link_elem and link_elem.has_attr('href'):
+                    product_id = link_elem['href'].split('/')[-1] if '/' in link_elem['href'] else ''
+                    price_elem = item.select_one('[class*="price"]')
+                    price = price_elem.text.strip() if price_elem else "価格未知"
+                    
+                    # 构建基本产品信息
+                    product = {
+                        'id': product_id,
+                        'name': f"商品加载中 (ID: {product_id})", # 更清晰的提示
+                        'price': price,
+                        'image_url': "https://static.mercdn.net/images/mercari_profile.png",
+                        'product_url': link_elem['href'] if link_elem['href'].startswith('http') else f"https://jp.mercari.com{link_elem['href']}",
+                        'stock_status': 'on_sale'
+                    }
+                    products.append(product)
+                continue  # 跳过其余处理，继续下一个商品项
+                
+            # 检查文本是否是有效的商品名称的函数
+            def is_valid_name(text):
+                if not text:
+                    return False
+                
+                # 排除明显是折扣标记的文本
+                discount_patterns = [
+                    r'\d+%\s*OFF', 
+                    r'SALE', 
+                    r'セール', 
+                    r'割引',
+                    r'^\d+%$', 
+                    r'^OFF$',
+                    r'^\d+%オフ$',
+                    r'特価',
+                    r'値下げ',
+                    r'^送料無料$',
+                    r'^即購入OK$',
+                    r'^匿名配送$'
+                ]
+                
+                for pattern in discount_patterns:
+                    if re.search(pattern, text, re.IGNORECASE):
+                        logger.debug(f"跳过折扣标记: {text}")
+                        return False
+                
+                # 排除纯价格格式
+                price_patterns = [
+                    r'^¥\s*[\d,]+$',  # 日元价格格式 (¥1,000)
+                    r'^\$\s*[\d,\.]+$',  # 美元价格格式 ($10.99)
+                    r'^EUR\s*[\d,\.]+$',  # 欧元价格格式 (EUR10.99)
+                    r'^\d+円$',  # 日元（数字+円）(1000円)
+                    r'^[\d,]+$',  # 纯数字 (1000)
+                    r'^[\d,]+円$',  # 数字+円带千位分隔符 (1,000円)
+                ]
+                for pattern in price_patterns:
+                    if re.search(pattern, text):
+                        logger.debug(f"跳过价格标记: {text}")
+                        return False
+                
+                # 排除过短的名称
+                if len(text) < 3:
+                    logger.debug(f"跳过过短名称: {text}")
+                    return False
+                
+                # 排除纯由数字、特殊字符组成的文本
+                if re.match(r'^[0-9¥$€£,.%\s]+$', text):
+                    logger.debug(f"跳过纯数字或特殊字符名称: {text}")
+                    return False
+                
+                return True
+            
+            # 按照优先级顺序定义名称选择器
             name_selectors = [
-                '[data-testid="thumbnail-item-name"]', 
-                '.merText', 
-                'p.primary__5616e150', 
-                'h3', 
-                'a > div span'
+                '[data-testid="thumbnail-item-name"]',  # 高优先级选择器
+                'span[data-testid="item-name"]',
+                '[data-testid="name"]',
+                '.merItemTitle h3',
+                '.item-name',
+                '.item-title',
+                'h3',
+                'figcaption',
+                'p.primary__5616e150',
+                # 更通用的选择器
+                'figcaption span',
+                '.merText:not([class*="price"])',
+                'div > span:not([class*="price"])',
+                'a[data-location*="search_result"] span:not([class*="price"])',
+                'a[href*="/item/"] span:not([class*="price"])',
+                # 极其通用的选择器（作为最后尝试）
+                'p',
+                'div'
             ]
             
+            # 尝试找到有效商品名称
+            name = None
+            valid_name_found = False
+            
+            # 保存第一个找到的价格元素文本，用于后续分析
+            first_price_elem = item.select_one('[class*="price"]')
+            first_price_text = first_price_elem.text.strip() if first_price_elem else None
+            
             for selector in name_selectors:
-                name_elem = item.select_one(selector)
-                if name_elem and name_elem.text.strip():
-                    name = name_elem.text.strip()
-                    break
+                name_elems = item.select(selector)
+                for name_elem in name_elems:
+                    if name_elem and name_elem.text.strip():
+                        potential_name = name_elem.text.strip()
+                        
+                        # 跳过与价格完全匹配的文本
+                        if first_price_text and first_price_text == potential_name:
+                            logger.debug(f"跳过与价格相同的文本: {potential_name}")
+                            continue
+                            
+                        # 检查是否是有效的商品名称
+                        if is_valid_name(potential_name):
+                            name = potential_name
+                            logger.info(f"找到有效商品名称: {name}，使用选择器: {selector}")
+                            valid_name_found = True
+                            break
+                        else:
+                            logger.debug(f"忽略无效名称: {potential_name}，使用选择器: {selector}")
                     
-            if not name:
-                continue
+                if valid_name_found:
+                    break
+            
+            # 新增：尝试使用item元素的title属性
+            if not valid_name_found:
+                if item.has_attr('title') and is_valid_name(item['title']):
+                    name = item['title']
+                    valid_name_found = True
+                    logger.info(f"从元素title属性找到有效名称: {name}")
+                    
+                # 尝试查找子元素的title属性
+                else:
+                    for elem in item.select('[title]'):
+                        if elem.has_attr('title') and is_valid_name(elem['title']):
+                            name = elem['title']
+                            valid_name_found = True
+                            logger.info(f"从子元素title属性找到有效名称: {name}")
+                            break
+                            
+            # 新增：尝试使用alt属性中的描述文本
+            if not valid_name_found:
+                img_with_alt = item.select_one('img[alt]')
+                if img_with_alt and img_with_alt.has_attr('alt') and is_valid_name(img_with_alt['alt']):
+                    name = img_with_alt['alt']
+                    valid_name_found = True
+                    logger.info(f"从图片alt属性找到有效名称: {name}")
+                    
+            # 尝试提取商品描述信息
+            if not valid_name_found:
+                # 尝试找描述信息
+                desc_selectors = [
+                    '[data-testid="item-description"]',
+                    '[data-testid="description"]',
+                    '.item-description',
+                    '.description',
+                    'p.description'
+                ]
+                
+                for selector in desc_selectors:
+                    desc_elem = item.select_one(selector)
+                    if desc_elem and desc_elem.text.strip() and is_valid_name(desc_elem.text.strip()):
+                        name = desc_elem.text.strip()
+                        valid_name_found = True
+                        logger.info(f"从商品描述中找到名称: {name}")
+                        break
+                    
+            if not valid_name_found:
+                # 尝试使用元素文本或商品ID
+                text_content = item.get_text(strip=True)
+                
+                # 移除任何明显的折扣信息和价格信息
+                for pattern in [r'\d+%\s*OFF', r'SALE', r'セール', r'割引', r'¥\s*[\d,]+', r'\$\s*[\d,\.]+', r'送料無料', r'即購入OK', r'匿名配送']:
+                    text_content = re.sub(pattern, '', text_content, flags=re.IGNORECASE).strip()
+                
+                if text_content and len(text_content) > 5:
+                    # 尝试通过寻找价格模式来分割文本
+                    price_match = re.search(r'(¥\s*[\d,]+|\$\s*[\d,\.]+|EUR\s*[\d,\.]+|\d+円|[\d,]+円)', text_content)
+                    if price_match:
+                        # 使用价格之前的文本作为名称
+                        potential_name = text_content[:price_match.start()].strip()
+                        if is_valid_name(potential_name):
+                            name = potential_name[:100] if len(potential_name) > 100 else potential_name
+                            logger.info(f"从文本中提取出名称: {name}")
+                        else:
+                            # 尝试在价格之后寻找名称
+                            potential_name = text_content[price_match.end():].strip()
+                            if is_valid_name(potential_name):
+                                name = potential_name[:100] if len(potential_name) > 100 else potential_name
+                                logger.info(f"从价格后文本中提取出名称: {name}")
+                            else:
+                                # 如果前后都不是有效名称，使用不包含折扣和价格的元素文本
+                                cleaned_text = text_content
+                                # 移除所有匹配价格模式的内容
+                                price_patterns = [
+                                    r'¥\s*[\d,]+',
+                                    r'\$\s*[\d,\.]+',
+                                    r'EUR\s*[\d,\.]+',
+                                    r'\d+円',
+                                    r'[\d,]+円'
+                                ]
+                                for pattern in price_patterns:
+                                    cleaned_text = re.sub(pattern, '', cleaned_text, flags=re.IGNORECASE).strip()
+                                
+                                # 尝试分割成行，可能会有更好的结果
+                                lines = cleaned_text.split('\n')
+                                for line in lines:
+                                    if line and len(line.strip()) > 5 and is_valid_name(line.strip()):
+                                        name = line.strip()[:100]
+                                        logger.info(f"从分行文本中提取名称: {name}")
+                                        break
+                                
+                                if not name and len(cleaned_text) > 5:
+                                    name = cleaned_text[:100].strip()
+                                    logger.info(f"使用清理后的元素文本作为名称: {name}")
+                    else:
+                        # 如果没有找到价格，使用清理后的文本
+                        if is_valid_name(text_content):
+                            name = text_content[:100].strip()
+                            logger.info(f"使用元素文本作为名称: {name}")
+                        else:
+                            # 尝试分割文本并找到有效部分
+                            lines = text_content.split('\n')
+                            for line in lines:
+                                if line and len(line.strip()) > 5 and is_valid_name(line.strip()):
+                                    name = line.strip()[:100]
+                                    logger.info(f"从分行文本中提取名称: {name}")
+                                    break
+                
+                # 尝试从URL提取信息作为名称
+                if not name or len(name) < 5:
+                    link_elem = item.select_one('a[href*="/item/"]')
+                    if link_elem and link_elem.has_attr('href'):
+                        item_id = link_elem['href'].split('/')[-1]
+                        
+                        # 尝试查看链接中是否包含其他信息
+                        url_parts = link_elem['href'].split('/')
+                        if len(url_parts) > 4:
+                            url_name_part = url_parts[-2]
+                            if url_name_part != 'item' and is_valid_name(url_name_part):
+                                name = f"{url_name_part.replace('-', ' ').replace('_', ' ').title()} (ID: {item_id})"
+                                logger.info(f"从URL中提取出名称: {name}")
+                            else:
+                                name = f"商品 (ID: {item_id})"
+                                logger.info(f"使用商品ID作为名称: {name}")
+                        else:
+                            name = f"商品 (ID: {item_id})"
+                            logger.info(f"使用商品ID作为名称: {name}")
+                    else:
+                        # 如果完全无法获取信息
+                        name = f"未命名商品 #{item_index+1}"
+                        logger.warning(f"无法找到商品名称，使用索引: {name}")
             
             # 尝试多种价格选择器
             price = None
             price_selectors = [
                 '.merPrice', 
                 '[data-testid="price"]', 
-                'span[class*="price"]'
+                'span[class*="price"]',
+                '.item-price',
+                '.sc-6031d55c-1',
+                '.price'
             ]
             
             for selector in price_selectors:
@@ -243,7 +579,13 @@ def parse_products(html):
                     break
                     
             if not price:
-                continue
+                # 如果找不到价格，尝试从文本内容中提取
+                price_match = re.search(r'(¥\s*[\d,]+|\$\s*[\d,\.]+|EUR\s*[\d,\.]+|\d+円|[\d,]+円)', item.get_text())
+                if price_match:
+                    price = price_match.group(0).strip()
+                else:
+                    # 使用默认值
+                    price = "価格未知"
             
             # 尝试多种图片选择器
             image = None
@@ -255,9 +597,26 @@ def parse_products(html):
                 img_elem = item.select_one('img[data-src]')
                 if img_elem and img_elem.has_attr('data-src'):
                     image = img_elem['data-src']
+                else:
+                    # 尝试其他可能的图片属性
+                    for attr in ['data-thumbnail', 'data-original', 'data-lazy-src', 'data-bg', 'data-image']:
+                        img_elem = item.select_one(f'img[{attr}]')
+                        if img_elem and img_elem.has_attr(attr):
+                            image = img_elem[attr]
+                            break
+                    
+                    # 尝试查找背景图片
+                    if not image:
+                        for elem in item.select('[style*="background"]'):
+                            style = elem.get('style', '')
+                            bg_match = re.search(r'background(?:-image)?:\s*url\([\'"]?(.*?)[\'"]?\)', style)
+                            if bg_match:
+                                image = bg_match.group(1)
+                                break
                     
             if not image:
-                continue
+                # 默认图片
+                image = "https://static.mercdn.net/images/mercari_profile.png"
             
             # 获取链接
             link = None
@@ -271,6 +630,7 @@ def parse_products(html):
                     link = link_elem['href']
                     
             if not link:
+                logger.warning("无法找到商品链接，跳过")
                 continue
                 
             # 确保完整URL
@@ -295,9 +655,16 @@ def parse_products(html):
             
         except Exception as e:
             logger.warning(f"解析单个商品时出错: {str(e)}")
+            logger.warning(traceback.format_exc())
             continue
     
     logger.info(f"总共解析到 {len(products)} 个商品")
+    
+    # 新增：记录有多少商品使用了ID作为名称
+    id_as_name_count = sum(1 for p in products if "ID:" in p['name'])
+    if id_as_name_count > 0:
+        logger.warning(f"{id_as_name_count}/{len(products)} 个商品使用ID作为名称")
+    
     return products
 
 def update_database(products, user_id):
@@ -430,27 +797,47 @@ def run_monitor(user_id):
             html = get_page_content_with_selenium(target_url)
             
             if html:
+                # 移除过于详细的日志输出
+                if not IS_PRODUCTION:
+                    logger.debug(f"成功获取HTML内容，长度: {len(html)}")
+                
+                # 检查是否包含骨架屏元素
+                if 'merSkeleton' in html:
+                    logger.warning("HTML中检测到骨架屏元素，页面可能未完全加载，但仍将尝试解析")
+                
                 products = parse_products(html)
                 
                 if products:
                     logger.info(f"解析到 {len(products)} 个商品")
-                    new_products = update_database(products, user_id)
                     
-                    if new_products:
-                        logger.info(f"发现 {len(new_products)} 个新商品，准备发送邮件")
-                        send_email(new_products, email)
+                    # 检查是否所有商品名称都与价格相同（通常是骨架屏情况）
+                    price_as_name_count = sum(1 for p in products if p['name'] == p['price'])
+                    if price_as_name_count > 0:
+                        logger.warning(f"检测到 {price_as_name_count}/{len(products)} 个商品使用价格作为名称，可能是骨架屏")
                         
-                        # 更新新商品数量
-                        conn = sqlite3.connect(DB_NAME)
-                        c = conn.cursor()
-                        c.execute("UPDATE monitor_status SET new_products=? WHERE user_id=?", 
-                                 (len(new_products), user_id))
-                        conn.commit()
-                        conn.close()
+                    # 至少有一个产品能够正确解析
+                    if len(products) > price_as_name_count:
+                        # 减少输出示例，使用简洁格式
+                        logger.info(f"商品示例: {products[0]['name'][:30]}..., {products[0]['price']}")
+                        new_products = update_database(products, user_id)
+                        
+                        if new_products:
+                            logger.info(f"发现 {len(new_products)} 个新商品，准备发送邮件")
+                            send_email(new_products, email)
+                            
+                            # 更新新商品数量
+                            conn = sqlite3.connect(DB_NAME)
+                            c = conn.cursor()
+                            c.execute("UPDATE monitor_status SET new_products=? WHERE user_id=?", 
+                                   (len(new_products), user_id))
+                            conn.commit()
+                            conn.close()
+                    else:
+                        logger.warning("所有商品都使用价格作为名称，页面可能未完全加载，跳过更新数据库")
                 else:
-                    logger.warning("未解析到任何商品")
+                    logger.warning("未解析到任何商品，检查解析函数")
             else:
-                logger.error("获取页面内容失败")
+                logger.error("获取页面内容失败，检查网络连接或Selenium配置")
             
             # 计算并记录抓取时间
             end_time = time.time()
@@ -466,6 +853,7 @@ def run_monitor(user_id):
         
         except Exception as e:
             logger.error(f"监控过程中出现错误: {str(e)}")
+            logger.error(traceback.format_exc())
 
 # 全局存储所有监控线程
 monitor_threads = {}
@@ -1322,5 +1710,22 @@ if __name__ == "__main__":
     create_verification_table()
     set_admin_account()  # 设置管理员账号
     
-    # 生产环境中禁用debug模式
-    app.run(debug=False, host='0.0.0.0')
+    # 根据环境变量配置Flask运行模式
+    debug_mode = not IS_PRODUCTION
+    
+    # 生产环境中关闭Flask内置的启动消息和其他日志输出
+    if IS_PRODUCTION:
+        import werkzeug
+        # 修复werkzeug日志配置，避免NoneType错误
+        try:
+            if hasattr(werkzeug, '_internal') and hasattr(werkzeug._internal, '_logger'):
+                werkzeug._internal._logger.setLevel(logging.ERROR)
+        except:
+            logger.warning("无法设置werkzeug内部日志级别")
+        
+        # 设置Flask应用相关日志级别
+        app.logger.setLevel(logging.ERROR)
+        logging.getLogger('werkzeug').setLevel(logging.ERROR)
+    
+    # 启动应用服务器
+    app.run(debug=debug_mode, host='0.0.0.0')
