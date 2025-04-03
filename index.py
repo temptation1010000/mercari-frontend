@@ -376,10 +376,11 @@ def encode_keyword_to_base64(keyword):
     encoded_str = encoded_bytes.decode('utf-8').rstrip('=')
     return encoded_str
 
-# 恢复原始URL格式
-BASE_URL = "https://jp.mercari.com/search?search_condition_id=1cx0xHGsd{encoded_keyword}"
+# 定义Mercari搜索的基础URL前缀
+BASE_URL_PREFIX = "https://jp.mercari.com/search?search_condition_id=1cx0xHGsd"
 
 async def run_monitor(user_id):
+    """异步监控任务主函数"""
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute("SELECT keywords, email FROM users WHERE id=?", (user_id,))
@@ -399,50 +400,40 @@ async def run_monitor(user_id):
             # 记录开始时间
             start_time = time.time()
             
-            # 使用原来的URL生成方式
+            # 修复URL生成逻辑
             encoded_keyword = encode_keyword_to_base64(keywords)
-            target_url = BASE_URL.format(encoded_keyword=encoded_keyword)
+            target_url = f"{BASE_URL_PREFIX}{encoded_keyword}"
             
             logger.info(f"请求URL: {target_url}")
             html = await get_page_content(target_url)
             
             if html:
-                # 始终输出详细日志
                 logger.debug(f"成功获取HTML内容，长度: {len(html)}")
                 
-                # 检查是否包含骨架屏元素
-                if 'merSkeleton' in html:
-                    logger.warning("HTML中检测到骨架屏元素，页面可能未完全加载，但仍将尝试解析")
-                
+                # 解析商品
                 products = parse_products(html)
                 
                 if products:
-                    logger.info(f"解析到 {len(products)} 个商品")
+                    logger.info(f"解析到 {len(products)} 个有效商品")
                     
-                    # 检查是否所有商品名称都与价格相同（通常是骨架屏情况）
-                    price_as_name_count = sum(1 for p in products if p['name'] == p['price'])
-                    if price_as_name_count > 0:
-                        logger.warning(f"检测到 {price_as_name_count}/{len(products)} 个商品使用价格作为名称，可能是骨架屏")
+                    # 只显示第一个产品的简要信息
+                    first_product = products[0]
+                    logger.info(f"商品示例: {first_product['name'][:30]}{'...' if len(first_product['name']) > 30 else ''} ({first_product['price']})")
+                    
+                    # 更新数据库并获取新商品
+                    new_products = update_database(products, user_id)
+                    
+                    if new_products:
+                        logger.info(f"发现 {len(new_products)} 个新商品，准备发送邮件")
+                        send_email(new_products, email)
                         
-                    # 至少有一个产品能够正确解析
-                    if len(products) > price_as_name_count:
-                        # 减少输出示例，使用简洁格式
-                        logger.info(f"商品示例: {products[0]['name'][:30]}..., {products[0]['price']}")
-                        new_products = update_database(products, user_id)
-                        
-                        if new_products:
-                            logger.info(f"发现 {len(new_products)} 个新商品，准备发送邮件")
-                            send_email(new_products, email)
-                            
-                            # 更新新商品数量
-                            conn = sqlite3.connect(DB_NAME)
-                            c = conn.cursor()
-                            c.execute("UPDATE monitor_status SET new_products=? WHERE user_id=?", 
-                                   (len(new_products), user_id))
-                            conn.commit()
-                            conn.close()
-                    else:
-                        logger.warning("所有商品都使用价格作为名称，页面可能未完全加载，跳过更新数据库")
+                        # 更新新商品数量
+                        conn = sqlite3.connect(DB_NAME)
+                        c = conn.cursor()
+                        c.execute("UPDATE monitor_status SET new_products=? WHERE user_id=?", 
+                               (len(new_products), user_id))
+                        conn.commit()
+                        conn.close()
                 else:
                     logger.warning("未解析到任何商品，检查解析函数")
             else:
