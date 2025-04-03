@@ -1,1 +1,13 @@
-./start_frontend.sh: 行 55: serve: 未找到命令
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  2025/4/3 21:00:00 ::1 GET /
+ HTTP  2025/4/3 21:00:00 ::1 Returned 304 in 15 ms
+ HTTP  2025/4/3 21:00:00 ::1 GET /static/js/main.090fec44.js
+ HTTP  2025/4/3 21:00:00 ::1 GET /static/css/main.a438b62c.css
+ HTTP  2025/4/3 21:00:00 ::1 Returned 304 in 2 ms
+ HTTP  2025/4/3 21:00:00 ::1 Returned 304 in 3 ms
+ HTTP  2025/4/3 21:00:00 ::1 GET /assets/hero-illustration.png
+ HTTP  2025/4/3 21:00:00 ::1 Returned 304 in 1 ms
+ HTTP  2025/4/3 21:00:04 ::1 POST /api/login
+ HTTP  2025/4/3 21:00:04 ::1 Returned 200 in 8 ms
+
+ INFO  Gracefully shutting down. Please wait...

@@ -22,22 +22,18 @@ from flask_cors import CORS
 from functools import wraps
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
+import jwt
 
 # 设置日志
 LOG_FILE = "mercari_monitor.log"
 
-# 检查是否为生产环境
-IS_PRODUCTION = os.environ.get('FLASK_ENV') == 'production'
-
-# 配置日志
-log_level = logging.INFO if IS_PRODUCTION else logging.DEBUG
+# 移除生产环境检查，直接设置日志配置
 logging.basicConfig(
-    level=log_level,
+    level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler("mercari_monitor.log"),
-        # 在生产环境不输出到控制台
-        logging.StreamHandler() if not IS_PRODUCTION else logging.NullHandler()
+        logging.StreamHandler()  # 始终输出到控制台
     ]
 )
 logger = logging.getLogger(__name__)
@@ -45,6 +41,8 @@ logger = logging.getLogger(__name__)
 # 配置信息
 DB_NAME = "mercari_monitor.db"
 CHECK_INTERVAL = 0.1  
+# 添加JWT密钥
+SECRET_KEY = os.environ.get("SECRET_KEY", "mercari_monitor_secret_key")
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15",
@@ -164,15 +162,14 @@ async def get_page_content(url):
             html_content = await page.content()
             logger.info(f"获取页面成功，长度: {len(html_content)}")
             
-            # 调试信息(仅在非生产环境)
-            if not IS_PRODUCTION:
-                await page.screenshot(path="mercari_screenshot.png", full_page=True)
-                with open("mercari_debug.html", "w", encoding="utf-8") as f:
-                    f.write(html_content)
-                    
-                # 将完整HTML内容也保存下来以便调试
-                with open("mercari_full_debug.html", "w", encoding="utf-8") as f:
-                    f.write(html_content)
+            # 始终保存调试信息
+            await page.screenshot(path="mercari_screenshot.png", full_page=True)
+            with open("mercari_debug.html", "w", encoding="utf-8") as f:
+                f.write(html_content)
+                
+            # 将完整HTML内容也保存下来以便调试
+            with open("mercari_full_debug.html", "w", encoding="utf-8") as f:
+                f.write(html_content)
             
             await browser.close()
             return html_content
@@ -196,9 +193,9 @@ def parse_products(html):
     
     if not items:
         logger.error("无法找到商品项，保存HTML以供调试")
-        if not IS_PRODUCTION:
-            with open("mercari_full_debug.html", "w", encoding="utf-8") as f:
-                f.write(html)
+        # 始终保存调试HTML
+        with open("mercari_full_debug.html", "w", encoding="utf-8") as f:
+            f.write(html)
         return []
     
     logger.info(f"找到 {len(items)} 个商品项")
@@ -410,9 +407,8 @@ async def run_monitor(user_id):
             html = await get_page_content(target_url)
             
             if html:
-                # 移除过于详细的日志输出
-                if not IS_PRODUCTION:
-                    logger.debug(f"成功获取HTML内容，长度: {len(html)}")
+                # 始终输出详细日志
+                logger.debug(f"成功获取HTML内容，长度: {len(html)}")
                 
                 # 检查是否包含骨架屏元素
                 if 'merSkeleton' in html:
@@ -619,10 +615,20 @@ def auth_required(f):
         if token.startswith('Bearer '):
             token = token[7:]
         
-        if token != 'your_jwt_token_here':
-            return jsonify({'error': '未授权访问'}), 401
+        if not token:
+            return jsonify({'error': '未提供授权令牌'}), 401
+            
+        try:
+            # 使用SECRET_KEY解码JWT令牌
+            payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+            # 将用户信息添加到请求上下文中
+            request.user = payload
+            return f(*args, **kwargs)
+        except jwt.ExpiredSignatureError:
+            return jsonify({'error': '令牌已过期，请重新登录'}), 401
+        except jwt.InvalidTokenError:
+            return jsonify({'error': '无效的令牌'}), 401
         
-        return f(*args, **kwargs)
     return decorated
 
 def admin_required(f):
@@ -631,24 +637,25 @@ def admin_required(f):
         token = request.headers.get('Authorization', '')
         if token.startswith('Bearer '):
             token = token[7:]
-        
-        username = request.args.get('username', '')
-        if not username:
-            return jsonify({'error': '未提供用户名'}), 400
+            
+        if not token:
+            return jsonify({'error': '未提供授权令牌'}), 401
             
         try:
-            is_admin = DBHelper.execute_query(
-                "SELECT * FROM admins WHERE username=?", 
-                (username,), 
-                fetch_one=True
-            )
+            # 使用SECRET_KEY解码JWT令牌
+            payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
             
-            if not is_admin:
-                return jsonify({'error': '未授权的访问'}), 403
+            # 检查是否为管理员
+            if not payload.get('isAdmin', False):
+                return jsonify({'error': '需要管理员权限'}), 403
                 
+            # 将用户信息添加到请求上下文中
+            request.user = payload
             return f(*args, **kwargs)
-        except Exception as e:
-            return jsonify({'error': f'认证失败: {str(e)}'}), 500
+        except jwt.ExpiredSignatureError:
+            return jsonify({'error': '令牌已过期，请重新登录'}), 401
+        except jwt.InvalidTokenError:
+            return jsonify({'error': '无效的令牌'}), 401
     return decorated
 
 @app.route('/api/send-code', methods=['POST'])
@@ -717,112 +724,103 @@ def api_register():
         conn.close()
 
 @app.route('/api/user/update', methods=['POST'])
+@auth_required
 def api_user_update():
-    # 从认证令牌中获取用户ID
-    token = request.headers.get('Authorization', '')
-    if token.startswith('Bearer '):
-        token = token[7:]  # 去掉'Bearer '前缀
+    # 从认证令牌中获取用户信息
+    username = request.user.get('username')
     
-    # 这里应该解析JWT token获取用户ID
-    # 简化版：从token中提取用户名，然后查询用户ID
-    if token == 'your_jwt_token_here':  # 测试用的token
-        data = request.json
-        keywords = data.get('keywords', '')
-        email = data.get('email', '')
-        
-        # 获取请求中的用户名（应该从token中解析）
-        username = request.args.get('username', '')
-        
-        conn = sqlite3.connect(DB_NAME)
-        c = conn.cursor()
-        
-        try:
-            # 先通过用户名查询用户ID
-            if username:
-                c.execute("SELECT id FROM users_auth WHERE username=?", (username,))
-                user_result = c.fetchone()
-                if user_result:
-                    user_id = user_result[0]
-                else:
-                    return jsonify({'error': '用户不存在'}), 404
-            else:
-                return jsonify({'error': '未提供用户名'}), 400
-            
-            # 更新用户信息
-            c.execute("UPDATE users SET keywords=?, email=? WHERE id=?", 
-                      (keywords, email, user_id))
-            
-            # 同时更新users_auth表中的email
-            if username:
-                c.execute("UPDATE users_auth SET email=? WHERE username=?", 
-                          (email, username))
-                
-            conn.commit()
-            return jsonify({'message': '设置已更新'}), 200
-        except Exception as e:
-            return jsonify({'error': '更新失败'}), 500
-        finally:
-            conn.close()
-    else:
-        return jsonify({'error': '未授权'}), 401
-
-@app.route('/api/monitor/start', methods=['POST'])
-def api_monitor_start():
-    username = request.args.get('username', '')
+    data = request.json
+    keywords = data.get('keywords', '')
+    email = data.get('email', '')
     
-    if not username:
-        return jsonify({'error': '未提供用户名'}), 400
-        
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     
     try:
+        # 通过用户名查询用户ID
         c.execute("SELECT id FROM users_auth WHERE username=?", (username,))
         user_result = c.fetchone()
-        
-        if not user_result:
-            return jsonify({'error': '用户不存在'}), 404
-            
-        user_id = user_result[0]
-        success = start_monitoring(user_id)
-        
-        if success:
-            return jsonify({'message': '监控已启动'}), 200
+        if user_result:
+            user_id = user_result[0]
         else:
-            return jsonify({'error': '无法启动监控，请确保已设置关键词'}), 400
+            return jsonify({'error': '用户不存在'}), 404
+        
+        # 更新用户信息
+        c.execute("UPDATE users SET keywords=?, email=? WHERE id=?", 
+                  (keywords, email, user_id))
+        
+        # 同时更新users_auth表中的email
+        c.execute("UPDATE users_auth SET email=? WHERE username=?", 
+                  (email, username))
+            
+        conn.commit()
+        return jsonify({'message': '设置已更新'}), 200
     except Exception as e:
-        return jsonify({'error': '启动监控失败'}), 500
+        return jsonify({'error': f'更新失败: {str(e)}'}), 500
+    finally:
+        conn.close()
+
+@app.route('/api/monitor/start', methods=['POST'])
+@auth_required
+def api_start_monitor():
+    # 从JWT令牌中获取用户名
+    username = request.user.get('username')
+    
+    # 从请求中获取可选的参数
+    keywords = request.args.get('keywords', '')
+    
+    # 通过用户名获取用户ID
+    user_id = get_user_id_from_username(username)
+    
+    if not user_id:
+        return jsonify({'error': '用户不存在'}), 404
+    
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    
+    try:
+        # 检查用户配置
+        config = get_user_config(user_id)
+        if not config or not config[0]:  # 用户没有设置关键词
+            # 如果请求中提供了关键词，则使用请求中的关键词
+            if keywords:
+                # 更新用户关键词
+                c.execute("UPDATE users SET keywords=? WHERE id=?", 
+                          (keywords, user_id))
+                conn.commit()
+            else:
+                return jsonify({'error': '请先设置关键词或在请求中提供关键词'}), 400
+        
+        # 开始监控
+        start_monitoring(user_id)
+        
+        return jsonify({'message': '监控已启动'}), 200
+    except Exception as e:
+        return jsonify({'error': f'启动监控失败: {str(e)}'}), 500
     finally:
         conn.close()
 
 @app.route('/api/monitor/stop', methods=['POST'])
-def api_monitor_stop():
-    username = request.args.get('username', '')
+@auth_required
+def api_stop_monitor():
+    # 从JWT令牌中获取用户名
+    username = request.user.get('username')
     
-    if not username:
-        return jsonify({'error': '未提供用户名'}), 400
-        
-    conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
+    # 通过用户名获取用户ID
+    user_id = get_user_id_from_username(username)
+    
+    if not user_id:
+        return jsonify({'error': '用户不存在'}), 404
     
     try:
-        c.execute("SELECT id FROM users_auth WHERE username=?", (username,))
-        user_result = c.fetchone()
-        
-        if not user_result:
-            return jsonify({'error': '用户不存在'}), 404
-            
-        user_id = user_result[0]
         success = stop_monitoring(user_id)
         
         if success:
             return jsonify({'message': '监控已停止'}), 200
         else:
-            return jsonify({'error': '停止监控失败'}), 500
+            return jsonify({'error': '无法停止监控，可能监控任务尚未启动'}), 400
     except Exception as e:
-        return jsonify({'error': '停止监控失败'}), 500
-    finally:
-        conn.close()
+        return jsonify({'error': f'停止监控失败: {str(e)}'}), 500
 
 @app.route('/api/login', methods=['POST'])
 def api_login():
@@ -843,52 +841,52 @@ def api_login():
             c.execute("SELECT * FROM admins WHERE username=?", (username,))
             is_admin = c.fetchone() is not None
             
+            # 生成JWT令牌
+            payload = {
+                'username': username,
+                'userId': user[0],
+                'isAdmin': is_admin,
+                'exp': datetime.utcnow() + timedelta(days=30)
+            }
+            
+            # 使用SECRET_KEY签名JWT令牌
+            token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+            
             return jsonify({
-                'token': 'your_jwt_token_here',
+                'token': token,
                 'isAdmin': is_admin
             }), 200
         else:
             return jsonify({'error': '用户名或密码错误'}), 401
     except Exception as e:
-        return jsonify({'error': '登录失败'}), 500
+        logger.error(f"登录失败: {str(e)}")
+        return jsonify({'error': '登录失败，请重试'}), 500
     finally:
         conn.close()
 
 @app.route('/api/monitor/status', methods=['GET'])
+@auth_required
 def api_monitor_status():
-    username = request.args.get('username', '')
+    # 从JWT令牌中获取用户名
+    username = request.user.get('username')
     
-    if not username:
-        return jsonify({'error': '未提供用户名'}), 400
-        
+    # 通过用户名获取用户ID
+    user_id = get_user_id_from_username(username)
+    
+    if not user_id:
+        return jsonify({'error': '用户不存在'}), 404
+    
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     
     try:
-        # 根据用户名获取用户ID
-        c.execute("SELECT id FROM users_auth WHERE username=?", (username,))
-        user_result = c.fetchone()
-        
-        if not user_result:
-            return jsonify({'error': '用户不存在'}), 404
-            
-        user_id = user_result[0]
-        
-        # 创建监控状态表（如果不存在）
-        c.execute('''CREATE TABLE IF NOT EXISTS monitor_status 
-                 (user_id INTEGER PRIMARY KEY,
-                  is_running BOOLEAN,
-                  last_check TEXT,
-                  new_products INTEGER)''')
-        
-        # 查询该用户的监控状态
         c.execute("SELECT is_running, last_check, new_products FROM monitor_status WHERE user_id=?", (user_id,))
         status_result = c.fetchone()
         
         if not status_result:
-            # 如果没有记录，创建默认记录
-            c.execute("INSERT INTO monitor_status (user_id, is_running, last_check, new_products) VALUES (?, ?, ?, ?)",
-                     (user_id, False, None, 0))
+            # 用户还没有监控记录，创建一个初始记录
+            c.execute("INSERT INTO monitor_status (user_id, is_running, last_check, new_products) VALUES (?, 0, NULL, 0)", 
+                    (user_id,))
             conn.commit()
             
             return jsonify({
@@ -909,51 +907,39 @@ def api_monitor_status():
         conn.close()
 
 @app.route('/api/user/info', methods=['GET'])
+@auth_required
 def api_user_info():
-    # 从认证令牌中获取用户ID
-    token = request.headers.get('Authorization', '')
-    if token.startswith('Bearer '):
-        token = token[7:]  # 去掉'Bearer '前缀
+    # 从认证令牌中获取用户信息
+    username = request.user.get('username')
     
-    # 这里应该解析JWT token获取用户ID
-    # 简化版：从token中提取用户名，然后查询用户ID
-    if token == 'your_jwt_token_here':  # 测试用的token
-        # 获取请求中的用户名（应该从token中解析）
-        username = request.args.get('username', '')
-        
-        conn = sqlite3.connect(DB_NAME)
-        c = conn.cursor()
-        
-        try:
-            # 先通过用户名查询用户ID
-            if username:
-                c.execute("SELECT id FROM users_auth WHERE username=?", (username,))
-                user_result = c.fetchone()
-                if user_result:
-                    user_id = user_result[0]
-                else:
-                    return jsonify({'error': '用户不存在'}), 404
-            else:
-                return jsonify({'error': '未提供用户名'}), 400
-                
-            # 查询用户信息
-            c.execute("SELECT keywords, email FROM users WHERE id=?", (user_id,))
-            result = c.fetchone()
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    
+    try:
+        # 通过用户名查询用户ID
+        c.execute("SELECT id FROM users_auth WHERE username=?", (username,))
+        user_result = c.fetchone()
+        if user_result:
+            user_id = user_result[0]
+        else:
+            return jsonify({'error': '用户不存在'}), 404
             
-            if result:
-                keywords, email = result
-                return jsonify({
-                    'keywords': keywords,
-                    'email': email
-                }), 200
-            else:
-                return jsonify({'error': '用户信息不存在'}), 404
-        except Exception as e:
-            return jsonify({'error': '获取用户信息失败'}), 500
-        finally:
-            conn.close()
-    else:
-        return jsonify({'error': '未授权'}), 401
+        # 查询用户信息
+        c.execute("SELECT keywords, email FROM users WHERE id=?", (user_id,))
+        result = c.fetchone()
+        
+        if result:
+            keywords, email = result
+            return jsonify({
+                'keywords': keywords,
+                'email': email
+            }), 200
+        else:
+            return jsonify({'error': '用户信息不存在'}), 404
+    except Exception as e:
+        return jsonify({'error': '获取用户信息失败'}), 500
+    finally:
+        conn.close()
 
 def create_verification_table():
     conn = sqlite3.connect(DB_NAME)
@@ -1095,21 +1081,11 @@ def get_user_config(user_id):
     )
 
 @app.route('/api/user/delete', methods=['POST'])
+@auth_required
 def api_delete_account():
-    # 从认证令牌中获取用户ID
-    token = request.headers.get('Authorization', '')
-    if token.startswith('Bearer '):
-        token = token[7:]  # 去掉'Bearer '前缀
+    # 从JWT令牌中获取用户名
+    username = request.user.get('username')
     
-    # 验证token (这里使用简化版验证)
-    if token != 'your_jwt_token_here':  # 应改为实际的token验证
-        return jsonify({'error': '未授权'}), 401
-    
-    username = request.args.get('username', '')
-    
-    if not username:
-        return jsonify({'error': '未提供用户名'}), 400
-        
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     
@@ -1133,33 +1109,25 @@ def api_delete_account():
         c.execute("SELECT is_running FROM monitor_status WHERE user_id=?", (user_id,))
         monitor_status = c.fetchone()
         if monitor_status and monitor_status[0]:
-            # 更新监控状态为停止
-            c.execute("UPDATE monitor_status SET is_running=? WHERE user_id=?", 
-                    (False, user_id))
-        
-        # 开始事务删除用户所有相关数据
-        # 1. 删除监控状态
+            stop_monitoring(user_id)
+            
+        # 删除用户的监控状态
         c.execute("DELETE FROM monitor_status WHERE user_id=?", (user_id,))
         
-        # 2. 删除用户配置
-        c.execute("DELETE FROM users WHERE id=?", (user_id,))
-        
-        # 3. 删除用户产品数据
+        # 删除用户的监控记录
         c.execute("DELETE FROM products WHERE user_id=?", (user_id,))
         
-        # 4. 最后删除用户账户
+        # 删除users表中的记录
+        c.execute("DELETE FROM users WHERE id=?", (user_id,))
+        
+        # 删除users_auth表中的记录
         c.execute("DELETE FROM users_auth WHERE id=?", (user_id,))
         
-        # 提交事务
         conn.commit()
-        
-        logger.info(f"用户 {username} 已注销账户")
-        return jsonify({'message': '账户已成功注销'}), 200
-            
+        return jsonify({'message': '账户已删除'}), 200
     except Exception as e:
         conn.rollback()
-        logger.error(f"注销账户失败: {str(e)}")
-        return jsonify({'error': f'注销账户失败: {str(e)}'}), 500
+        return jsonify({'error': f'删除账户失败: {str(e)}'}), 500
     finally:
         conn.close()
             
@@ -1262,28 +1230,18 @@ def api_send_notification():
         return jsonify({'error': '发送通知邮件失败'}), 500
             
 @app.route('/api/monitor/avg_time', methods=['GET'])
+@auth_required
 def get_average_scrape_time():
-    username = request.args.get('username')
+    # 从JWT令牌中获取用户名
+    username = request.user.get('username')
     
-    if not username:
-        return jsonify({'error': '未提供用户名'}), 400
+    # 根据用户名获取用户ID
+    user_id = get_user_id_from_username(username)
     
-    # 使用与其他API一致的身份验证方式
-    token = request.headers.get('Authorization', '')
-    if token.startswith('Bearer '):
-        token = token[7:]  # 去掉'Bearer '前缀
-    
-    # 这里简化验证，实际应该检查token的有效性
-    if token != 'your_jwt_token_here':  # 测试用的token
-        return jsonify({'error': '未授权'}), 401
+    if not user_id:
+        return jsonify({'error': '用户不存在'}), 404
     
     try:
-        # 根据用户名获取用户ID
-        user_id = get_user_id_from_username(username)
-        
-        if not user_id:
-            return jsonify({'error': '用户不存在'}), 404
-        
         # 获取最近10次抓取的平均时间
         avg_time = DBHelper.execute_query(
             """
@@ -1328,22 +1286,5 @@ if __name__ == "__main__":
     create_verification_table()
     set_admin_account()  # 设置管理员账号
     
-    # 根据环境变量配置Flask运行模式
-    debug_mode = not IS_PRODUCTION
-    
-    # 生产环境中关闭Flask内置的启动消息和其他日志输出
-    if IS_PRODUCTION:
-        import werkzeug
-        # 修复werkzeug日志配置，避免NoneType错误
-        try:
-            if hasattr(werkzeug, '_internal') and hasattr(werkzeug._internal, '_logger'):
-                werkzeug._internal._logger.setLevel(logging.ERROR)
-        except:
-            logger.warning("无法设置werkzeug内部日志级别")
-        
-        # 设置Flask应用相关日志级别
-        app.logger.setLevel(logging.ERROR)
-        logging.getLogger('werkzeug').setLevel(logging.ERROR)
-    
-    # 启动应用服务器
-    app.run(debug=debug_mode, host='0.0.0.0')
+    # 始终使用调试模式
+    app.run(debug=True, host='0.0.0.0')

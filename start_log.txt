@@ -1,2 +1,4 @@
  * Serving Flask app 'index'
  * Debug mode: off
+/home/luchino/mercari-frontend/index.py:866: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  'exp': datetime.utcnow() + timedelta(days=30)
