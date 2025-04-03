@@ -7321,3 +7321,13 @@ Call log:
 2025-04-03 21:15:49,147 - INFO - 127.0.0.1 - - [03/Apr/2025 21:15:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
 2025-04-03 21:16:07,332 - INFO -  * Detected change in '/home/luchino/mercari-frontend/index.py', reloading
 2025-04-03 21:16:07,382 - INFO -  * Restarting with stat
+2025-04-03 22:01:03,059 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 22:01:03,059 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 22:01:03,060 - INFO -  * Restarting with stat
+2025-04-03 22:01:03,268 - WARNING -  * Debugger is active!
+2025-04-03 22:01:03,270 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 22:01:41,753 - INFO - 127.0.0.1 - - [03/Apr/2025 22:01:41] "[33mGET /assets/hero-illustration.png HTTP/1.1[0m" 404 -
+2025-04-03 22:01:43,583 - INFO - 127.0.0.1 - - [03/Apr/2025 22:01:43] "POST /api/login HTTP/1.1" 200 -
