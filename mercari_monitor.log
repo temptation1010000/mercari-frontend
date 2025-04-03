@@ -5579,3 +5579,1209 @@
 2025-03-30 12:50:10,934 - INFO - 等待页面加载完成: 8.51秒
 2025-03-30 12:50:29,754 - WARNING - 等待骨架屏消失失败，将继续处理: Message: 
 
+2025-04-03 17:48:07,617 - WARNING - 无法设置werkzeug内部日志级别
+2025-04-03 17:50:31,412 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 17:50:31,412 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 17:50:31,413 - INFO -  * Restarting with stat
+2025-04-03 17:50:31,598 - WARNING -  * Debugger is active!
+2025-04-03 17:50:31,607 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 17:50:36,992 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:36] "POST /api/login HTTP/1.1" 200 -
+2025-04-03 17:50:39,744 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:39] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:50:39,744 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:39] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:50:42,417 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:42] "GET /api/user/info?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:50:43,621 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:43] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:50:43,621 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:43] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:50:45,498 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/admin/users?username=momo9144&page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-03 17:50:45,525 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=ccc HTTP/1.1" 200 -
+2025-04-03 17:50:45,526 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=Xiaoyebuzaioxo HTTP/1.1" 200 -
+2025-04-03 17:50:45,528 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=chase HTTP/1.1" 200 -
+2025-04-03 17:50:45,529 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=YANZI HTTP/1.1" 200 -
+2025-04-03 17:50:45,530 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=slayerrr HTTP/1.1" 200 -
+2025-04-03 17:50:45,530 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=garden HTTP/1.1" 200 -
+2025-04-03 17:50:45,540 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=花铃可爱 HTTP/1.1" 200 -
+2025-04-03 17:50:45,542 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=chase123 HTTP/1.1" 200 -
+2025-04-03 17:50:45,542 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=c HTTP/1.1" 200 -
+2025-04-03 17:50:45,542 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:45] "GET /api/monitor/status?username=七宫 HTTP/1.1" 200 -
+2025-04-03 17:50:51,909 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "POST /api/admin/stop-all-monitors?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:50:51,916 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/admin/users?username=momo9144&page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-03 17:50:51,931 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=ccc HTTP/1.1" 200 -
+2025-04-03 17:50:51,931 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=Xiaoyebuzaioxo HTTP/1.1" 200 -
+2025-04-03 17:50:51,931 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=chase HTTP/1.1" 200 -
+2025-04-03 17:50:51,931 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=YANZI HTTP/1.1" 200 -
+2025-04-03 17:50:51,932 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=garden HTTP/1.1" 200 -
+2025-04-03 17:50:51,932 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=slayerrr HTTP/1.1" 200 -
+2025-04-03 17:50:51,944 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=花铃可爱 HTTP/1.1" 200 -
+2025-04-03 17:50:51,944 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=c HTTP/1.1" 200 -
+2025-04-03 17:50:51,945 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=chase123 HTTP/1.1" 200 -
+2025-04-03 17:50:51,945 - INFO - 127.0.0.1 - - [03/Apr/2025 17:50:51] "GET /api/monitor/status?username=七宫 HTTP/1.1" 200 -
+2025-04-03 17:51:25,585 - INFO - 127.0.0.1 - - [03/Apr/2025 17:51:25] "GET /api/user/info?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:51:28,244 - INFO - 127.0.0.1 - - [03/Apr/2025 17:51:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 17:51:28,245 - INFO - 127.0.0.1 - - [03/Apr/2025 17:51:28] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:47:08,450 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 18:47:08,450 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 18:47:08,451 - INFO -  * Restarting with stat
+2025-04-03 18:47:08,631 - WARNING -  * Debugger is active!
+2025-04-03 18:47:08,632 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 18:48:53,922 - INFO - 127.0.0.1 - - [03/Apr/2025 18:48:53] "[33mGET /assets/hero-illustration.png HTTP/1.1[0m" 404 -
+2025-04-03 18:48:55,189 - INFO - 127.0.0.1 - - [03/Apr/2025 18:48:55] "POST /api/login HTTP/1.1" 200 -
+2025-04-03 18:48:56,248 - INFO - 127.0.0.1 - - [03/Apr/2025 18:48:56] "GET /api/user/info?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:48:58,843 - INFO - 127.0.0.1 - - [03/Apr/2025 18:48:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:48:58,843 - INFO - 127.0.0.1 - - [03/Apr/2025 18:48:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:48:59,942 - INFO - 127.0.0.1 - - [03/Apr/2025 18:48:59] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:48:59,943 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:48:59,943 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:48:59,943 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:48:59,943 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:48:59,953 - INFO - 127.0.0.1 - - [03/Apr/2025 18:48:59] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:00,123 - ERROR - 获取页面错误: BrowserType.launch: Executable doesn't exist at /home/luchino/.cache/ms-playwright/chromium_headless_shell-1161/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+2025-04-03 18:49:00,123 - ERROR - Traceback (most recent call last):
+  File "/home/luchino/mercari-frontend/index.py", line 132, in get_page_content
+    browser = await p.chromium.launch(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 14450, in launch
+    await self._impl_obj.launch(
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 96, in launch
+    Browser, from_channel(await self._channel.send("launch", params))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 61, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 528, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /home/luchino/.cache/ms-playwright/chromium_headless_shell-1161/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+
+2025-04-03 18:49:00,123 - ERROR - 获取页面内容失败，检查网络连接或Playwright配置
+2025-04-03 18:49:00,124 - INFO - 抓取完成，耗时: 0.18秒
+2025-04-03 18:49:06,143 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:49:06,144 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:49:06,144 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:49:06,145 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:49:06,307 - ERROR - 获取页面错误: BrowserType.launch: Executable doesn't exist at /home/luchino/.cache/ms-playwright/chromium_headless_shell-1161/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+2025-04-03 18:49:06,308 - ERROR - Traceback (most recent call last):
+  File "/home/luchino/mercari-frontend/index.py", line 132, in get_page_content
+    browser = await p.chromium.launch(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 14450, in launch
+    await self._impl_obj.launch(
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 96, in launch
+    Browser, from_channel(await self._channel.send("launch", params))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 61, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 528, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /home/luchino/.cache/ms-playwright/chromium_headless_shell-1161/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+
+2025-04-03 18:49:06,308 - ERROR - 获取页面内容失败，检查网络连接或Playwright配置
+2025-04-03 18:49:06,308 - INFO - 抓取完成，耗时: 0.16秒
+2025-04-03 18:49:08,859 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:08,862 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:09,142 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:09] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:09,151 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:09] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:18,855 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:18] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:18,859 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:18] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:28,851 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:28,851 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:28] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:38,848 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:38,848 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:38] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:48,847 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:48] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:48,849 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:48] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:58,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:49:58,843 - INFO - 127.0.0.1 - - [03/Apr/2025 18:49:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:08,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:08,843 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:18,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:18] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:18,843 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:18] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:28,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:28,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:28] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:38,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:38,843 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:38] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:48,845 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:48] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:48,845 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:48] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:58,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:50:58,842 - INFO - 127.0.0.1 - - [03/Apr/2025 18:50:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:08,852 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:08,854 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:18,845 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:18] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:18,846 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:18] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:28,847 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:28,849 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:28] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:38,844 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:38,845 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:38] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:48,847 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:48] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:48,848 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:48] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:58,850 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:51:58,851 - INFO - 127.0.0.1 - - [03/Apr/2025 18:51:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:08,847 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:08,848 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:18,852 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:18] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:18,854 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:18] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:28,845 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:28,846 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:28] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:33,703 - INFO -  * Detected change in '/home/luchino/mercari-frontend/test_playwright.py', reloading
+2025-04-03 18:52:33,747 - INFO -  * Restarting with stat
+2025-04-03 18:52:33,932 - WARNING -  * Debugger is active!
+2025-04-03 18:52:33,934 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 18:52:50,664 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 18:52:50,664 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 18:52:50,665 - INFO -  * Restarting with stat
+2025-04-03 18:52:50,847 - WARNING -  * Debugger is active!
+2025-04-03 18:52:50,849 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 18:52:56,186 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:56] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:56,187 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:56] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:57,337 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:57] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:57,337 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:52:57,337 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:52:57,338 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:52:57,338 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:52:57,343 - INFO - 127.0.0.1 - - [03/Apr/2025 18:52:57] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:52:59,384 - INFO - 获取页面成功，长度: 47796
+2025-04-03 18:52:59,532 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 18:52:59,545 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:52:59,545 - INFO - 总共解析到 0 个商品
+2025-04-03 18:52:59,545 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:52:59,545 - INFO - 抓取完成，耗时: 2.21秒
+2025-04-03 18:53:05,550 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:53:05,552 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:53:05,552 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:53:05,552 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:53:06,187 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:06] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:06,188 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:06] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:06,794 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:06] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:06,798 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:06] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:07,495 - INFO - 获取页面成功，长度: 47796
+2025-04-03 18:53:07,649 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 18:53:07,661 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:53:07,661 - INFO - 总共解析到 0 个商品
+2025-04-03 18:53:07,661 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:53:07,661 - INFO - 抓取完成，耗时: 2.11秒
+2025-04-03 18:53:17,137 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:17] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:17,139 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:17] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:27,129 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:27] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:27,130 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:27] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:37,132 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:37] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:37,132 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:37] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:47,131 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:47] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:47,134 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:47] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:57,139 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:57] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:53:57,141 - INFO - 127.0.0.1 - - [03/Apr/2025 18:53:57] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:54:07,128 - INFO - 127.0.0.1 - - [03/Apr/2025 18:54:07] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:54:07,128 - INFO - 127.0.0.1 - - [03/Apr/2025 18:54:07] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:54:49,139 - INFO - 127.0.0.1 - - [03/Apr/2025 18:54:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:54:49,143 - INFO - 127.0.0.1 - - [03/Apr/2025 18:54:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:55:49,138 - INFO - 127.0.0.1 - - [03/Apr/2025 18:55:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:55:49,138 - INFO - 127.0.0.1 - - [03/Apr/2025 18:55:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:56:32,058 - INFO -  * Detected change in '/home/luchino/mercari-frontend/index.py', reloading
+2025-04-03 18:56:32,108 - INFO -  * Restarting with stat
+2025-04-03 18:56:32,289 - WARNING -  * Debugger is active!
+2025-04-03 18:56:32,290 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 18:56:49,129 - INFO - 127.0.0.1 - - [03/Apr/2025 18:56:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:56:49,130 - INFO - 127.0.0.1 - - [03/Apr/2025 18:56:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:56:50,556 - INFO - 127.0.0.1 - - [03/Apr/2025 18:56:50] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:56:50,556 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:56:50,556 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:56:50,557 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:56:50,557 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:56:52,507 - INFO - 获取页面成功，长度: 47796
+2025-04-03 18:56:52,657 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 18:56:52,670 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:56:52,671 - INFO - 总共解析到 0 个商品
+2025-04-03 18:56:52,671 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:56:52,671 - INFO - 抓取完成，耗时: 2.11秒
+2025-04-03 18:56:58,677 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:56:58,678 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:56:58,678 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:56:58,678 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:00,529 - INFO - 获取页面成功，长度: 48644
+2025-04-03 18:57:00,674 - DEBUG - 成功获取HTML内容，长度: 48644
+2025-04-03 18:57:00,686 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:00,686 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:00,686 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:00,686 - INFO - 抓取完成，耗时: 2.01秒
+2025-04-03 18:57:06,691 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:57:06,692 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:57:06,692 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:06,692 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:08,673 - INFO - 获取页面成功，长度: 47796
+2025-04-03 18:57:08,921 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 18:57:08,933 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:08,933 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:08,933 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:08,933 - INFO - 抓取完成，耗时: 2.24秒
+2025-04-03 18:57:14,938 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:57:14,939 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:57:14,939 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:14,939 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:17,013 - INFO - 获取页面成功，长度: 47796
+2025-04-03 18:57:17,220 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 18:57:17,232 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:17,232 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:17,232 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:17,232 - INFO - 抓取完成，耗时: 2.29秒
+2025-04-03 18:57:23,239 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:57:23,239 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:57:23,240 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:23,240 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:25,153 - INFO - 获取页面成功，长度: 47796
+2025-04-03 18:57:25,403 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 18:57:25,416 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:25,416 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:25,416 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:25,416 - INFO - 抓取完成，耗时: 2.18秒
+2025-04-03 18:57:31,423 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:57:31,424 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:57:31,424 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:31,424 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:33,386 - INFO - 获取页面成功，长度: 48666
+2025-04-03 18:57:33,629 - DEBUG - 成功获取HTML内容，长度: 48666
+2025-04-03 18:57:33,640 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:33,641 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:33,641 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:33,641 - INFO - 抓取完成，耗时: 2.22秒
+2025-04-03 18:57:39,648 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:57:39,649 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:57:39,649 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:39,649 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:41,586 - INFO - 获取页面成功，长度: 48644
+2025-04-03 18:57:41,742 - DEBUG - 成功获取HTML内容，长度: 48644
+2025-04-03 18:57:41,754 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:41,754 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:41,754 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:41,754 - INFO - 抓取完成，耗时: 2.11秒
+2025-04-03 18:57:47,760 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:57:47,761 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:57:47,761 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:47,761 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:49,129 - INFO - 127.0.0.1 - - [03/Apr/2025 18:57:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:57:49,130 - INFO - 127.0.0.1 - - [03/Apr/2025 18:57:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:57:49,794 - INFO - 获取页面成功，长度: 48666
+2025-04-03 18:57:50,034 - DEBUG - 成功获取HTML内容，长度: 48666
+2025-04-03 18:57:50,045 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:50,046 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:50,046 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:50,046 - INFO - 抓取完成，耗时: 2.29秒
+2025-04-03 18:57:56,052 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:57:56,053 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:57:56,053 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:56,053 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:57:58,168 - INFO - 获取页面成功，长度: 48666
+2025-04-03 18:57:58,323 - DEBUG - 成功获取HTML内容，长度: 48666
+2025-04-03 18:57:58,335 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:57:58,335 - INFO - 总共解析到 0 个商品
+2025-04-03 18:57:58,335 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:57:58,335 - INFO - 抓取完成，耗时: 2.28秒
+2025-04-03 18:58:04,340 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:58:04,340 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:58:04,340 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:04,340 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:06,355 - INFO - 获取页面成功，长度: 47796
+2025-04-03 18:58:06,573 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 18:58:06,584 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:58:06,585 - INFO - 总共解析到 0 个商品
+2025-04-03 18:58:06,585 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:58:06,585 - INFO - 抓取完成，耗时: 2.24秒
+2025-04-03 18:58:12,592 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:58:12,593 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:58:12,593 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:12,593 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:14,461 - INFO - 获取页面成功，长度: 48666
+2025-04-03 18:58:14,607 - DEBUG - 成功获取HTML内容，长度: 48666
+2025-04-03 18:58:14,619 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:58:14,619 - INFO - 总共解析到 0 个商品
+2025-04-03 18:58:14,619 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:58:14,619 - INFO - 抓取完成，耗时: 2.03秒
+2025-04-03 18:58:20,625 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:58:20,626 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:58:20,626 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:20,626 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:21,656 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:21] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:21,658 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:21] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:22,603 - INFO - 获取页面成功，长度: 48666
+2025-04-03 18:58:22,837 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:22] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:22,838 - DEBUG - 成功获取HTML内容，长度: 48666
+2025-04-03 18:58:22,854 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:58:22,854 - INFO - 总共解析到 0 个商品
+2025-04-03 18:58:22,854 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:58:22,854 - INFO - 抓取完成，耗时: 2.23秒
+2025-04-03 18:58:22,855 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:22] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:27,129 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:27] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:27,131 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:27] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:35,435 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 18:58:35,436 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 18:58:35,436 - INFO -  * Restarting with stat
+2025-04-03 18:58:35,620 - WARNING -  * Debugger is active!
+2025-04-03 18:58:35,622 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 18:58:36,838 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:36] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:36,839 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:36] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:38,221 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:38,222 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:38] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:39,860 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:39] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:39,860 - DEBUG - Using selector: EpollSelector
+2025-04-03 18:58:39,861 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 18:58:39,861 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:39,861 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 18:58:39,868 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:39] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:41,960 - INFO - 获取页面成功，长度: 48644
+2025-04-03 18:58:42,239 - DEBUG - 成功获取HTML内容，长度: 48644
+2025-04-03 18:58:42,252 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 18:58:42,253 - INFO - 总共解析到 0 个商品
+2025-04-03 18:58:42,253 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 18:58:42,253 - INFO - 抓取完成，耗时: 2.39秒
+2025-04-03 18:58:46,549 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:46] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:46,554 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:46] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 18:58:55,962 - INFO - 127.0.0.1 - - [03/Apr/2025 18:58:55] "[33mPOST /api/monitor/debug/save-html?username=momo9144 HTTP/1.1[0m" 404 -
+2025-04-03 19:01:20,003 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 19:01:20,003 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 19:01:20,003 - INFO -  * Restarting with stat
+2025-04-03 19:01:20,222 - WARNING -  * Debugger is active!
+2025-04-03 19:01:20,223 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:01:21,732 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:21] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:21,733 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:21] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:23,233 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:23] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:23,234 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:23] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:24,276 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:24] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:24,276 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:01:24,277 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:01:24,277 - ERROR - 监控过程中出现错误: name 'base64' is not defined
+2025-04-03 19:01:24,279 - ERROR - Traceback (most recent call last):
+  File "/home/luchino/mercari-frontend/index.py", line 587, in run_monitor
+    encoded_keyword = encode_keyword_to_base64(keywords)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/mercari-frontend/index.py", line 559, in encode_keyword_to_base64
+    encoded_bytes = base64.b64encode(keyword.encode('utf-8'))
+                    ^^^^^^
+NameError: name 'base64' is not defined. Did you forget to import 'base64'
+
+2025-04-03 19:01:24,281 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:24] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:30,279 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:01:30,280 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:01:30,280 - ERROR - 监控过程中出现错误: name 'base64' is not defined
+2025-04-03 19:01:30,281 - ERROR - Traceback (most recent call last):
+  File "/home/luchino/mercari-frontend/index.py", line 587, in run_monitor
+    encoded_keyword = encode_keyword_to_base64(keywords)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/mercari-frontend/index.py", line 559, in encode_keyword_to_base64
+    encoded_bytes = base64.b64encode(keyword.encode('utf-8'))
+                    ^^^^^^
+NameError: name 'base64' is not defined. Did you forget to import 'base64'
+
+2025-04-03 19:01:34,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:34] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:34,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:34] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:36,294 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:01:36,295 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:01:36,295 - ERROR - 监控过程中出现错误: name 'base64' is not defined
+2025-04-03 19:01:36,296 - ERROR - Traceback (most recent call last):
+  File "/home/luchino/mercari-frontend/index.py", line 587, in run_monitor
+    encoded_keyword = encode_keyword_to_base64(keywords)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/mercari-frontend/index.py", line 559, in encode_keyword_to_base64
+    encoded_bytes = base64.b64encode(keyword.encode('utf-8'))
+                    ^^^^^^
+NameError: name 'base64' is not defined. Did you forget to import 'base64'
+
+2025-04-03 19:01:42,299 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:01:42,299 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:01:42,300 - ERROR - 监控过程中出现错误: name 'base64' is not defined
+2025-04-03 19:01:42,302 - ERROR - Traceback (most recent call last):
+  File "/home/luchino/mercari-frontend/index.py", line 587, in run_monitor
+    encoded_keyword = encode_keyword_to_base64(keywords)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luchino/mercari-frontend/index.py", line 559, in encode_keyword_to_base64
+    encoded_bytes = base64.b64encode(keyword.encode('utf-8'))
+                    ^^^^^^
+NameError: name 'base64' is not defined. Did you forget to import 'base64'
+
+2025-04-03 19:01:44,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:44] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:44,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:44] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:46,330 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:46] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:46,338 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:46] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:54,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:54] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:01:54,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:01:54] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:34,503 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 19:02:34,503 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 19:02:34,504 - INFO -  * Restarting with stat
+2025-04-03 19:02:34,717 - WARNING -  * Debugger is active!
+2025-04-03 19:02:34,719 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:02:37,750 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:37] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:37,752 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:37] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:38,629 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:38] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:38,629 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:02:38,630 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:02:38,630 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:02:38,630 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:02:38,637 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:40,621 - INFO - 获取页面成功，长度: 48666
+2025-04-03 19:02:40,777 - DEBUG - 成功获取HTML内容，长度: 48666
+2025-04-03 19:02:40,789 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 19:02:40,789 - DEBUG - 商品 #0 没有有效ID，跳过
+2025-04-03 19:02:40,789 - DEBUG - 商品 #1 没有有效ID，跳过
+2025-04-03 19:02:40,790 - DEBUG - 商品 #2 没有有效ID，跳过
+2025-04-03 19:02:40,790 - INFO - 总共解析到 0 个商品
+2025-04-03 19:02:40,790 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 19:02:40,790 - INFO - 抓取完成，耗时: 2.16秒
+2025-04-03 19:02:45,920 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:45] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:45,927 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:45] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:48,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:48] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:48,130 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:48] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:48,299 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:48] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:48,300 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:02:48,300 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:02:48,300 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:02:48,300 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:02:50,166 - INFO - 获取页面成功，长度: 47796
+2025-04-03 19:02:50,313 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 19:02:50,322 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 19:02:50,323 - DEBUG - 商品 #0 没有有效ID，跳过
+2025-04-03 19:02:50,323 - DEBUG - 商品 #1 没有有效ID，跳过
+2025-04-03 19:02:50,323 - DEBUG - 商品 #2 没有有效ID，跳过
+2025-04-03 19:02:50,323 - INFO - 总共解析到 0 个商品
+2025-04-03 19:02:50,323 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 19:02:50,323 - INFO - 抓取完成，耗时: 2.02秒
+2025-04-03 19:02:56,329 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:02:56,329 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:02:56,329 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:02:56,329 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:02:58,130 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:58,131 - INFO - 127.0.0.1 - - [03/Apr/2025 19:02:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:02:58,264 - INFO - 获取页面成功，长度: 48644
+2025-04-03 19:02:58,477 - DEBUG - 成功获取HTML内容，长度: 48644
+2025-04-03 19:02:58,486 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 19:02:58,486 - DEBUG - 商品 #0 没有有效ID，跳过
+2025-04-03 19:02:58,487 - DEBUG - 商品 #1 没有有效ID，跳过
+2025-04-03 19:02:58,487 - DEBUG - 商品 #2 没有有效ID，跳过
+2025-04-03 19:02:58,487 - INFO - 总共解析到 0 个商品
+2025-04-03 19:02:58,487 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 19:02:58,487 - INFO - 抓取完成，耗时: 2.16秒
+2025-04-03 19:06:14,159 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 19:06:14,159 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 19:06:14,159 - INFO -  * Restarting with stat
+2025-04-03 19:06:14,366 - WARNING -  * Debugger is active!
+2025-04-03 19:06:14,368 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:06:15,160 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:15] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:15,161 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:15] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:16,525 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:16] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:16,526 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:16] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:19,874 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:19] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:19,880 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:19] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:20,535 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:20] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:20,535 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:06:20,536 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:06:20,536 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:06:20,536 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:06:20,542 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:20] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:22,472 - INFO - 获取页面成功，长度: 47796
+2025-04-03 19:06:22,616 - DEBUG - 成功获取HTML内容，长度: 47796
+2025-04-03 19:06:22,641 - INFO - 找到 3 个商品项，使用选择器: '[data-location*="search_result"]'
+2025-04-03 19:06:22,642 - DEBUG - 商品 #0 没有有效ID，跳过
+2025-04-03 19:06:22,642 - DEBUG - 商品 #1 没有有效ID，跳过
+2025-04-03 19:06:22,642 - DEBUG - 商品 #2 没有有效ID，跳过
+2025-04-03 19:06:22,642 - INFO - 总共解析到 0 个商品
+2025-04-03 19:06:22,643 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 19:06:22,643 - INFO - 抓取完成，耗时: 2.11秒
+2025-04-03 19:06:26,854 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:26] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:26,855 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:26] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:27,715 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:27] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:27,720 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:27] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:37,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:37] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:06:37,142 - INFO - 127.0.0.1 - - [03/Apr/2025 19:06:37] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:31,508 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 19:09:31,508 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 19:09:31,508 - INFO -  * Restarting with stat
+2025-04-03 19:09:31,717 - WARNING -  * Debugger is active!
+2025-04-03 19:09:31,718 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:09:32,907 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:32] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:32,907 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:32] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:34,849 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:34] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:34,850 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:34] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:35,674 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:35] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:35,675 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:09:35,675 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:09:35,675 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:09:35,675 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:09:35,680 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:35] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:37,691 - INFO - 获取页面成功，长度: 48666
+2025-04-03 19:09:37,843 - DEBUG - 成功获取HTML内容，长度: 48666
+2025-04-03 19:09:37,862 - ERROR - 无法找到商品项 [data-testid="item-cell"]，尝试替代选择器
+2025-04-03 19:09:37,863 - ERROR - 无法找到任何商品项，保存HTML以供调试
+2025-04-03 19:09:37,864 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 19:09:37,864 - INFO - 抓取完成，耗时: 2.19秒
+2025-04-03 19:09:42,788 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:42] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:42,793 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:42] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:44,854 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:44] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:44,855 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:44] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:54,862 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:54] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:09:54,865 - INFO - 127.0.0.1 - - [03/Apr/2025 19:09:54] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:04,850 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:04] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:04,851 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:04] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:14,854 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:14] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:14,854 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:14] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:25,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:25] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:25,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:25] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:35,138 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:35] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:35,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:35] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:45,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:45] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:45,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:45] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:55,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:55] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:10:55,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:10:55] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:11:05,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:11:05] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:11:05,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:11:05] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:11:15,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:11:15] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:11:15,137 - INFO - 127.0.0.1 - - [03/Apr/2025 19:11:15] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:11:49,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:11:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:11:49,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:11:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:12:49,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:12:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:12:49,144 - INFO - 127.0.0.1 - - [03/Apr/2025 19:12:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:13:36,600 - INFO -  * Detected change in '/home/luchino/mercari-frontend/index.py', reloading
+2025-04-03 19:13:36,651 - INFO -  * Restarting with stat
+2025-04-03 19:13:36,854 - WARNING -  * Debugger is active!
+2025-04-03 19:13:36,856 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:13:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:13:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:13:49,137 - INFO - 127.0.0.1 - - [03/Apr/2025 19:13:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:13:50,179 - INFO -  * Detected change in '/home/luchino/mercari-frontend/index.py', reloading
+2025-04-03 19:13:50,222 - INFO -  * Restarting with stat
+2025-04-03 19:13:50,414 - WARNING -  * Debugger is active!
+2025-04-03 19:13:50,416 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:14:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:14:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:14:49,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:14:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:15:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:15:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:15:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:15:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:16:49,136 - INFO - 127.0.0.1 - - [03/Apr/2025 19:16:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:16:49,136 - INFO - 127.0.0.1 - - [03/Apr/2025 19:16:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:16:57,890 - INFO -  * Detected change in '/home/luchino/mercari-frontend/index.py', reloading
+2025-04-03 19:16:57,933 - INFO -  * Restarting with stat
+2025-04-03 19:16:58,137 - WARNING -  * Debugger is active!
+2025-04-03 19:16:58,139 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:17:18,641 - INFO -  * Detected change in '/home/luchino/mercari-frontend/index.py', reloading
+2025-04-03 19:17:18,681 - INFO -  * Restarting with stat
+2025-04-03 19:17:18,884 - WARNING -  * Debugger is active!
+2025-04-03 19:17:18,886 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:17:24,742 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 19:17:24,742 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 19:17:24,743 - INFO -  * Restarting with stat
+2025-04-03 19:17:24,937 - WARNING -  * Debugger is active!
+2025-04-03 19:17:24,939 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:17:26,616 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:26] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:26,617 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:26] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:27,672 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:27] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:27,673 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:27] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:28,375 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:28] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:28,376 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:17:28,376 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:17:28,376 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:17:28,376 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:17:28,382 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:30,156 - INFO - 等待商品元素加载...
+2025-04-03 19:17:34,485 - INFO - 商品元素已加载
+2025-04-03 19:17:38,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:38,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:38] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:39,505 - INFO - 获取页面成功，长度: 203845
+2025-04-03 19:17:40,020 - DEBUG - 成功获取HTML内容，长度: 203845
+2025-04-03 19:17:40,021 - WARNING - HTML中检测到骨架屏元素，页面可能未完全加载，但仍将尝试解析
+2025-04-03 19:17:40,074 - INFO - 找到 119 个商品项
+2025-04-03 19:17:40,074 - INFO - 解析到商品: 第五人格 Identity V 墓守 ホテル コラボ 缶バッ... (¥25,555)
+2025-04-03 19:17:40,075 - INFO - 解析到商品: 東京喰種　缶バッジ　TOKYO GHOUL (¥1,500)
+2025-04-03 19:17:40,075 - INFO - 解析到商品: Rain Drops SQUALL リングライト 鈴木勝 え... (¥1,000)
+2025-04-03 19:17:40,075 - INFO - 解析到商品: アイナナEXPO 7th UR アクブロ 缶バッジ リバーレ... (¥6,844)
+2025-04-03 19:17:40,076 - INFO - 解析到商品: にじさんじ 6周年チェキ まとめ売り (¥2,222)
+2025-04-03 19:17:40,076 - INFO - 解析到商品: ヒューマンバグ大学 (¥1,555)
+2025-04-03 19:17:40,076 - INFO - 解析到商品: 魔法騎士レイアース　DMMスクラッチ　くじ 缶バッジ　モコナ (¥3,500)
+2025-04-03 19:17:40,076 - INFO - 解析到商品: 五等分の花嫁　中野四葉　アクリルスタンド　上位賞　＋　紙類　... (¥7,800)
+2025-04-03 19:17:40,077 - INFO - 解析到商品: 五等分の花嫁　中野三玖　缶バッジ　まとめ売り (¥5,000)
+2025-04-03 19:17:40,077 - INFO - 解析到商品: 天道輝 バースデー記念グッズ 2021 缶バッジ アクスタ ... (¥3,555)
+2025-04-03 19:17:40,077 - INFO - 解析到商品: すみっコぐらし　ようこそ！たべもの王国　ノベルティ　缶バッジ... (¥800)
+2025-04-03 19:17:40,077 - INFO - 解析到商品: 公式正規品　甘雨　特典　付箋　原神　モチーフ　イメージファッ... (¥990)
+2025-04-03 19:17:40,078 - INFO - 解析到商品: twice サナ コロコロクリリン サンリオ 缶バッジ (¥1,222)
+2025-04-03 19:17:40,078 - INFO - 解析到商品: 鬼滅の刃 不死川玄弥 バースデー缶バッジ 2020 ジャンプ... (¥1,666)
+2025-04-03 19:17:40,078 - INFO - 解析到商品: 宝鐘マリン グッズまとめ アクリルスタンド 缶バッジ ステッ... (¥33,460)
+2025-04-03 19:17:40,078 - WARNING - 商品 #15 没有有效ID，跳过
+2025-04-03 19:17:40,078 - WARNING - 商品 #16 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #17 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #18 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #19 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #20 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #21 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #22 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #23 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #24 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #25 没有有效ID，跳过
+2025-04-03 19:17:40,079 - WARNING - 商品 #26 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #27 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #28 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #29 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #30 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #31 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #32 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #33 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #34 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #35 没有有效ID，跳过
+2025-04-03 19:17:40,080 - WARNING - 商品 #36 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #37 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #38 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #39 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #40 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #41 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #42 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #43 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #44 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #45 没有有效ID，跳过
+2025-04-03 19:17:40,081 - WARNING - 商品 #46 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #47 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #48 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #49 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #50 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #51 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #52 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #53 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #54 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #55 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #56 没有有效ID，跳过
+2025-04-03 19:17:40,082 - WARNING - 商品 #57 没有有效ID，跳过
+2025-04-03 19:17:40,083 - WARNING - 商品 #58 没有有效ID，跳过
+2025-04-03 19:17:40,083 - WARNING - 商品 #59 没有有效ID，跳过
+2025-04-03 19:17:40,083 - WARNING - 商品 #60 没有有效ID，跳过
+2025-04-03 19:17:40,083 - WARNING - 商品 #61 没有有效ID，跳过
+2025-04-03 19:17:40,083 - WARNING - 商品 #62 没有有效ID，跳过
+2025-04-03 19:17:40,083 - WARNING - 商品 #63 没有有效ID，跳过
+2025-04-03 19:17:40,083 - WARNING - 商品 #64 没有有效ID，跳过
+2025-04-03 19:17:40,083 - INFO - 解析到商品: 新品カードキャプターさくら25周年記念展 トレーディング刺繍... (¥2,100)
+2025-04-03 19:17:40,084 - INFO - 解析到商品: まふまふ 缶バッジ 12点セット (¥1,000)
+2025-04-03 19:17:40,084 - INFO - 解析到商品: 【お値下げ】ハイキュー　影山飛男　グッズまとめ売り (¥1,800)
+2025-04-03 19:17:40,084 - INFO - 解析到商品: 地獄楽 士遠 絵札缶バッジ　セット (¥3,555)
+2025-04-03 19:17:40,084 - INFO - 解析到商品: フラザリアメモリーズ カラビナ付きクリアケース アクリルネー... (¥3,333)
+2025-04-03 19:17:40,085 - INFO - 解析到商品: ゼンレスゾーンゼロ　缶バッジ (¥1,111)
+2025-04-03 19:17:40,085 - INFO - 解析到商品: バンドリ セガ たい焼き 特典 缶バッジ 戸山香澄 (¥444)
+2025-04-03 19:17:40,085 - INFO - 解析到商品: プロセカ グリ缶 草薙寧々 28A (¥33,333)
+2025-04-03 19:17:40,086 - INFO - 解析到商品: まふまふ 輪廻 缶バ 失意のエチュード (¥1,366)
+2025-04-03 19:17:40,086 - INFO - 解析到商品: 新品 アナ雪 エルサ アナ ピンバッジ 2個セット 香港ディ... (¥1,700)
+2025-04-03 19:17:40,086 - INFO - 解析到商品: エヴァ エヴァンゲリオン 缶バッチ (¥1,222)
+2025-04-03 19:17:40,086 - INFO - 解析到商品: 【非売品】アイマス　缶バッジ　フルセット (¥7,000)
+2025-04-03 19:17:40,087 - INFO - 解析到商品: あんさんぶるスターズ コレクション缶バッチ 真白友也 (¥9,500)
+2025-04-03 19:17:40,087 - INFO - 解析到商品: あんさんぶるスターズ コレクション缶バッチ 滝惟吹 (¥8,222)
+2025-04-03 19:17:40,087 - INFO - 解析到商品: あんさんぶるスターズ コレクション缶バッチ 南雲鉄虎 (¥9,999)
+2025-04-03 19:17:40,087 - INFO - 解析到商品: 【値下げ可能】いれいす If 春は麗し舞え桜吹雪 缶バッジ ... (¥8,470)
+2025-04-03 19:17:40,088 - INFO - 解析到商品: 銀魂 桂 缶バッジセット (¥1,444)
+2025-04-03 19:17:40,088 - INFO - 解析到商品: 高杉真宙 ゲームセンタータカスギ 非売品 缶バッジ 黄緑 未... (¥1,111)
+2025-04-03 19:17:40,088 - INFO - 解析到商品: ハイキュー アクスタ アクキー 缶バッジ スタンプ 影山飛雄... (¥1,555)
+2025-04-03 19:17:40,089 - INFO - 解析到商品: 王鶴棣 ワン・ホーディー 許七安 セット (¥3,790)
+2025-04-03 19:17:40,089 - INFO - 解析到商品: A3 缶バッチ キーホルダー セット (¥1,100)
+2025-04-03 19:17:40,089 - INFO - 解析到商品: 【300円商品2点で400円】ロッテ西野勇士缶バッジステッカ... (¥300)
+2025-04-03 19:17:40,089 - INFO - 解析到商品: 蒼穹のファフナー THE BEYOND アニメイト限定セット... (¥2,950)
+2025-04-03 19:17:40,090 - INFO - 解析到商品: まとめ売り　ディルック　ガイア　おすわりぬいぐるみ　原神　ア... (¥17,950)
+2025-04-03 19:17:40,090 - INFO - 解析到商品: BROTHERSCONFLICT ブラザーズコンフリクト　お... (¥2,999)
+2025-04-03 19:17:40,090 - WARNING - 商品 #90 没有有效ID，跳过
+2025-04-03 19:17:40,090 - WARNING - 商品 #91 没有有效ID，跳过
+2025-04-03 19:17:40,090 - WARNING - 商品 #92 没有有效ID，跳过
+2025-04-03 19:17:40,090 - WARNING - 商品 #93 没有有效ID，跳过
+2025-04-03 19:17:40,090 - WARNING - 商品 #94 没有有效ID，跳过
+2025-04-03 19:17:40,090 - WARNING - 商品 #95 没有有效ID，跳过
+2025-04-03 19:17:40,090 - WARNING - 商品 #96 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #97 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #98 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #99 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #100 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #101 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #102 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #103 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #104 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #105 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #106 没有有效ID，跳过
+2025-04-03 19:17:40,091 - WARNING - 商品 #107 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #108 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #109 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #110 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #111 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #112 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #113 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #114 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #115 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #116 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #117 没有有效ID，跳过
+2025-04-03 19:17:40,092 - WARNING - 商品 #118 没有有效ID，跳过
+2025-04-03 19:17:40,092 - INFO - 总共解析到 40 个有效商品
+2025-04-03 19:17:40,092 - INFO - 解析到 40 个商品
+2025-04-03 19:17:40,093 - INFO - 商品示例: 第五人格 Identity V 墓守 ホテル コラボ 缶バッ..., ¥25,555
+2025-04-03 19:17:40,107 - INFO - 发现 40 个新商品，准备发送邮件
+2025-04-03 19:17:41,758 - INFO - 成功发送新品通知邮件到: momo198002@163.com
+2025-04-03 19:17:41,763 - INFO - 抓取完成，耗时: 13.39秒
+2025-04-03 19:17:46,935 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:46] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:46,941 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:46] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:47,674 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:47] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:47,674 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:47] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:58,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:17:58,144 - INFO - 127.0.0.1 - - [03/Apr/2025 19:17:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:08,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:08,142 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:18,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:18] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:18,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:18] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:28,140 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:28,144 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:28] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:38,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:38,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:38] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:18:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:18:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:19:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:19:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:19:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:19:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:20:49,138 - INFO - 127.0.0.1 - - [03/Apr/2025 19:20:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:20:49,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:20:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:21:49,128 - INFO - 127.0.0.1 - - [03/Apr/2025 19:21:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:21:49,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:21:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:22:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:22:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:22:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:22:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:23:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:23:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:23:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:23:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:24:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:24:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:24:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:24:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:25:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:25:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:25:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:25:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:26:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:26:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:26:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:26:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:27:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:27:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:27:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:27:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:28:49,131 - INFO - 127.0.0.1 - - [03/Apr/2025 19:28:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:28:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:28:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:29:49,140 - INFO - 127.0.0.1 - - [03/Apr/2025 19:29:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:29:49,140 - INFO - 127.0.0.1 - - [03/Apr/2025 19:29:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:30:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:30:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:30:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:30:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:31:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:31:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:31:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:31:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:32:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:32:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:32:49,136 - INFO - 127.0.0.1 - - [03/Apr/2025 19:32:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:33:49,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:33:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:33:49,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:33:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:34:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:34:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:34:49,137 - INFO - 127.0.0.1 - - [03/Apr/2025 19:34:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:35:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:35:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:35:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:35:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:36:49,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:36:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:36:49,136 - INFO - 127.0.0.1 - - [03/Apr/2025 19:36:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:15,865 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:15] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:15,867 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:15] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:18,138 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:18] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:18,140 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:18] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:28,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:28] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:28,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:28] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:38,138 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:38,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:38] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:48,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:48] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:48,136 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:48] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:58,137 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:37:58,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:37:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:38:08,138 - INFO - 127.0.0.1 - - [03/Apr/2025 19:38:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:38:08,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:38:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:38:49,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:38:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:38:49,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:38:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:39:49,140 - INFO - 127.0.0.1 - - [03/Apr/2025 19:39:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:39:49,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:39:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:40:49,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:40:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:40:49,142 - INFO - 127.0.0.1 - - [03/Apr/2025 19:40:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:41:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:41:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:41:49,137 - INFO - 127.0.0.1 - - [03/Apr/2025 19:41:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:42:35,715 - INFO -  * Detected change in '/home/luchino/mercari-frontend/index.py', reloading
+2025-04-03 19:42:35,763 - INFO -  * Restarting with stat
+2025-04-03 19:42:35,965 - WARNING -  * Debugger is active!
+2025-04-03 19:42:35,967 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:42:49,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:42:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:42:49,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:42:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:06,560 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-03 19:47:06,560 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-03 19:47:06,561 - INFO -  * Restarting with stat
+2025-04-03 19:47:06,755 - WARNING -  * Debugger is active!
+2025-04-03 19:47:06,757 - INFO -  * Debugger PIN: 405-441-999
+2025-04-03 19:47:14,596 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:14] "[33mGET /assets/hero-illustration.png HTTP/1.1[0m" 404 -
+2025-04-03 19:47:15,757 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:15] "POST /api/login HTTP/1.1" 200 -
+2025-04-03 19:47:18,478 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:18] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:18,478 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:18] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:19,861 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:19] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:19,861 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:47:19,861 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:47:19,861 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:47:19,861 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:47:19,866 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:19] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:21,324 - INFO - 等待商品元素加载...
+2025-04-03 19:47:29,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:29] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:29,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:29] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:36,325 - WARNING - 等待商品元素超时: Page.wait_for_selector: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator("[data-testid=\"item-cell\"]") to be visible
+
+2025-04-03 19:47:36,331 - INFO - 获取页面成功，长度: 125925
+2025-04-03 19:47:38,468 - DEBUG - 成功获取HTML内容，长度: 125925
+2025-04-03 19:47:38,469 - WARNING - HTML中检测到骨架屏元素，页面可能未完全加载，但仍将尝试解析
+2025-04-03 19:47:38,500 - ERROR - 无法找到商品项，保存HTML以供调试
+2025-04-03 19:47:38,506 - WARNING - 未解析到任何商品，检查解析函数
+2025-04-03 19:47:38,506 - INFO - 抓取完成，耗时: 18.64秒
+2025-04-03 19:47:39,147 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:39] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:39,148 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:39] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:44,523 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:47:44,525 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:47:44,525 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:47:44,525 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:47:45,983 - INFO - 等待商品元素加载...
+2025-04-03 19:47:46,494 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:46] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:46,499 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:46] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:49,131 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:49,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:49,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:49,142 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:53,933 - INFO - 商品元素已加载
+2025-04-03 19:47:53,946 - INFO - 获取页面成功，长度: 205673
+2025-04-03 19:47:54,334 - DEBUG - 成功获取HTML内容，长度: 205673
+2025-04-03 19:47:54,334 - WARNING - HTML中检测到骨架屏元素，页面可能未完全加载，但仍将尝试解析
+2025-04-03 19:47:54,369 - INFO - 找到 117 个商品项
+2025-04-03 19:47:54,370 - INFO - 解析到商品: バンドリ　パスパレ丸山彩　缶バッジ14点セット (HK$457.40)
+2025-04-03 19:47:54,370 - INFO - 解析到商品: プロセカ グリッター缶バッジ vol.32B vol.28C (HK$76.85)
+2025-04-03 19:47:54,370 - INFO - 解析到商品: 新品★舞台 刀剣乱舞【歌仙兼定】悲伝 結いの目の不如帰★内番... (HK$120.70)
+2025-04-03 19:47:54,371 - INFO - 解析到商品: カリスマ　バースデー　誕生日　グッズ　アクリルスタンド　缶バ... (HK$121.97)
+2025-04-03 19:47:54,371 - INFO - 解析到商品: プロセカ　東雲絵名　缶バッジ (HK$30.46)
+2025-04-03 19:47:54,371 - INFO - 解析到商品: ハイキュー まとめ売り 黒尾鉄朗 (HK$367.10)
+2025-04-03 19:47:54,371 - INFO - 解析到商品: 【新品】BUCK-TICK 狂った太陽 ツアー ピンバッジ (HK$153.69)
+2025-04-03 19:47:54,372 - INFO - 解析到商品: 灼眼のシャナIII Final 缶バッジ (HK$116.92)
+2025-04-03 19:47:54,372 - INFO - 解析到商品: Identity V 第五人格 写真家 ジョセフ 缶バッジ ... (HK$135.58)
+2025-04-03 19:47:54,372 - INFO - 解析到商品: ParadoxLive パラライ 呉羽葵 缶バッジ SHOW... (HK$211.88)
+2025-04-03 19:47:54,372 - INFO - 解析到商品: ダンジョンに出会いを求めるのは間違っているだろうか イベント... (HK$285.43)
+2025-04-03 19:47:54,373 - INFO - 解析到商品: 犬夜叉　黒髪　朔日　七宝　缶バッジ　るーみっくコレクション　... (HK$1,372.25)
+2025-04-03 19:47:54,373 - INFO - 解析到商品: 【匿名配送】wayv 威神V スクールキット　ピンバッジ (HK$82.28)
+2025-04-03 19:47:54,373 - INFO - 解析到商品: 糸師凛 推しキャラバッジ vol1 vol2 (HK$548.85)
+2025-04-03 19:47:54,373 - INFO - 解析到商品: 【原神】旅人 蛍(ホタル)アクリルスタンド ウェディングドレ... (HK$54.84)
+2025-04-03 19:47:54,373 - WARNING - 商品 #15 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #16 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #17 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #18 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #19 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #20 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #21 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #22 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #23 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #24 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #25 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #26 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #27 没有有效ID，跳过
+2025-04-03 19:47:54,374 - WARNING - 商品 #28 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #29 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #30 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #31 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #32 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #33 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #34 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #35 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #36 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #37 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #38 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #39 没有有效ID，跳过
+2025-04-03 19:47:54,375 - WARNING - 商品 #40 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #41 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #42 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #43 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #44 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #45 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #46 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #47 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #48 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #49 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #50 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #51 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #52 没有有效ID，跳过
+2025-04-03 19:47:54,376 - WARNING - 商品 #53 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #54 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #55 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #56 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #57 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #58 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #59 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #60 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #61 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #62 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #63 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #64 没有有效ID，跳过
+2025-04-03 19:47:54,377 - WARNING - 商品 #65 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #66 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #67 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #68 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #69 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #70 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #71 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #72 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #73 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #74 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #75 没有有效ID，跳过
+2025-04-03 19:47:54,378 - WARNING - 商品 #76 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #77 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #78 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #79 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #80 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #81 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #82 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #83 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #84 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #85 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #86 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #87 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #88 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #89 没有有效ID，跳过
+2025-04-03 19:47:54,379 - WARNING - 商品 #90 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #91 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #92 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #93 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #94 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #95 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #96 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #97 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #98 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #99 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #100 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #101 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #102 没有有效ID，跳过
+2025-04-03 19:47:54,380 - WARNING - 商品 #103 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #104 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #105 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #106 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #107 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #108 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #109 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #110 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #111 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #112 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #113 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #114 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #115 没有有效ID，跳过
+2025-04-03 19:47:54,381 - WARNING - 商品 #116 没有有效ID，跳过
+2025-04-03 19:47:54,381 - INFO - 总共解析到 15 个有效商品
+2025-04-03 19:47:54,381 - INFO - 解析到 15 个商品
+2025-04-03 19:47:54,382 - INFO - 商品示例: バンドリ　パスパレ丸山彩　缶バッジ14点セット..., HK$457.40
+2025-04-03 19:47:54,384 - INFO - 发现 15 个新商品，准备发送邮件
+2025-04-03 19:47:55,672 - INFO - 成功发送新品通知邮件到: momo198002@163.com
+2025-04-03 19:47:55,686 - INFO - 抓取完成，耗时: 11.16秒
+2025-04-03 19:47:59,129 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:59] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:47:59,130 - INFO - 127.0.0.1 - - [03/Apr/2025 19:47:59] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:08,133 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:08] "[33mGET /main.00255436e6055fe2af93.hot-update.json HTTP/1.1[0m" 404 -
+2025-04-03 19:48:08,253 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:08,254 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:09,143 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:09] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:09,145 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:09] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:19,130 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:19] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:19,130 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:19] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:19,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:19] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:19,135 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:19] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:29,134 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:29] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:29,136 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:29] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:29,151 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:29] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:29,152 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:29] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:35,118 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:35] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:35,119 - DEBUG - Using selector: EpollSelector
+2025-04-03 19:48:35,121 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-03 19:48:35,122 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:48:35,122 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-03 19:48:35,127 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:35] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:37,046 - INFO - 等待商品元素加载...
+2025-04-03 19:48:39,131 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:39] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:39,132 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:39] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:39,140 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:39] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:39,140 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:39] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:41,476 - INFO - 商品元素已加载
+2025-04-03 19:48:41,487 - INFO - 获取页面成功，长度: 178081
+2025-04-03 19:48:45,039 - DEBUG - 成功获取HTML内容，长度: 178081
+2025-04-03 19:48:45,040 - WARNING - HTML中检测到骨架屏元素，页面可能未完全加载，但仍将尝试解析
+2025-04-03 19:48:45,072 - INFO - 找到 113 个商品项
+2025-04-03 19:48:45,073 - INFO - 解析到商品: スタンドマイヒーローズ   缶バッジ
+
+桐島宏弥
+
+まとめ (¥700)
+2025-04-03 19:48:45,073 - INFO - 解析到商品: ❤️即日発送❤️ すとぷりグッズ　まとめ売り　すとぷり　グッ... (¥6,280)
+2025-04-03 19:48:45,073 - INFO - 解析到商品: あんスタ trip 缶バッジ 瀬名泉 (¥14,999)
+2025-04-03 19:48:45,074 - INFO - 解析到商品: 都築京介 缶バッジ (¥800)
+2025-04-03 19:48:45,074 - INFO - 解析到商品: 呪術廻戦展　三輪霞　コレクション缶バッジ　8個セット (¥2,160)
+2025-04-03 19:48:45,074 - INFO - 解析到商品: ハイキュー　横断幕　缶バッジ　孤爪研磨 2個セット (¥888)
+2025-04-03 19:48:45,074 - INFO - 解析到商品: ダイヤのA　actⅡ　トレーディング原作コマ缶バッジ　58箱... (¥199,999)
+2025-04-03 19:48:45,075 - INFO - 解析到商品: ころねぱん様専用 (¥600)
+2025-04-03 19:48:45,075 - INFO - 解析到商品: 白州迅 桐原誠司 アクスタ 缶バッジ ハイロー (¥1,111)
+2025-04-03 19:48:45,075 - INFO - 解析到商品: 女子研究大学　女研　しろせんせー　缶バッジ　缶バ　渋谷pop... (¥4,500)
+2025-04-03 19:48:45,075 - INFO - 解析到商品: 【お纏め】イケメンヴァンパイア　ジャンヌ　アクリルアート　缶... (¥2,380)
+2025-04-03 19:48:45,076 - INFO - 解析到商品: めておら　缶バッジ　集合　デフォ　Lapis　心音　みかさ　... (¥499)
+2025-04-03 19:48:45,076 - INFO - 解析到商品: ワンピース缶バッジ　4点セット (現在 ¥300)
+2025-04-03 19:48:45,076 - INFO - 解析到商品: 鬼太郎 3期 マルイ トレーディング缶バッジ (¥6,000)
+2025-04-03 19:48:45,076 - INFO - 解析到商品: ちいかわ スクエア缶バッジ Blu-ray DVD 特典 フ... (¥2,180)
+2025-04-03 19:48:45,076 - WARNING - 商品 #15 没有有效ID，跳过
+2025-04-03 19:48:45,076 - WARNING - 商品 #16 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #17 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #18 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #19 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #20 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #21 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #22 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #23 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #24 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #25 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #26 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #27 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #28 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #29 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #30 没有有效ID，跳过
+2025-04-03 19:48:45,077 - WARNING - 商品 #31 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #32 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #33 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #34 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #35 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #36 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #37 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #38 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #39 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #40 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #41 没有有效ID，跳过
+2025-04-03 19:48:45,078 - WARNING - 商品 #42 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #43 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #44 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #45 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #46 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #47 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #48 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #49 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #50 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #51 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #52 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #53 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #54 没有有效ID，跳过
+2025-04-03 19:48:45,079 - WARNING - 商品 #55 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #56 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #57 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #58 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #59 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #60 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #61 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #62 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #63 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #64 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #65 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #66 没有有效ID，跳过
+2025-04-03 19:48:45,080 - WARNING - 商品 #67 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #68 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #69 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #70 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #71 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #72 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #73 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #74 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #75 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #76 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #77 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #78 没有有效ID，跳过
+2025-04-03 19:48:45,081 - WARNING - 商品 #79 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #80 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #81 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #82 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #83 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #84 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #85 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #86 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #87 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #88 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #89 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #90 没有有效ID，跳过
+2025-04-03 19:48:45,082 - WARNING - 商品 #91 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #92 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #93 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #94 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #95 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #96 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #97 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #98 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #99 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #100 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #101 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #102 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #103 没有有效ID，跳过
+2025-04-03 19:48:45,083 - WARNING - 商品 #104 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #105 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #106 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #107 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #108 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #109 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #110 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #111 没有有效ID，跳过
+2025-04-03 19:48:45,084 - WARNING - 商品 #112 没有有效ID，跳过
+2025-04-03 19:48:45,084 - INFO - 总共解析到 15 个有效商品
+2025-04-03 19:48:45,084 - INFO - 解析到 15 个商品
+2025-04-03 19:48:45,084 - INFO - 商品示例: スタンドマイヒーローズ   缶バッジ
+
+桐島宏弥
+
+まとめ..., ¥700
+2025-04-03 19:48:45,097 - INFO - 发现 15 个新商品，准备发送邮件
+2025-04-03 19:48:46,361 - INFO - 成功发送新品通知邮件到: momo198002@163.com
+2025-04-03 19:48:46,374 - INFO - 抓取完成，耗时: 11.25秒
+2025-04-03 19:48:49,138 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:49,139 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:49,147 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:49,148 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:51,243 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:51] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:51,247 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:51] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:59,141 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:59] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:59,143 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:59] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:59,149 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:59] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-03 19:48:59,149 - INFO - 127.0.0.1 - - [03/Apr/2025 19:48:59] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
