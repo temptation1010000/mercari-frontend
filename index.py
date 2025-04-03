@@ -32,8 +32,8 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("mercari_monitor.log"),
-        logging.StreamHandler()  # 始终输出到控制台
+        logging.FileHandler("mercari_monitor.log")
+        # 移除控制台输出
     ]
 )
 logger = logging.getLogger(__name__)
