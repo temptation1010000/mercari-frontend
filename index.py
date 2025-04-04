@@ -32,15 +32,15 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("mercari_monitor.log")
-        # 移除控制台输出
+        logging.FileHandler("mercari_monitor.log"),
+        logging.StreamHandler()  # 恢复控制台输出
     ]
 )
 logger = logging.getLogger(__name__)
 
 # 配置信息
 DB_NAME = "mercari_monitor.db"
-CHECK_INTERVAL = 0.1  
+CHECK_INTERVAL = 0
 # 添加JWT密钥
 SECRET_KEY = os.environ.get("SECRET_KEY", "mercari_monitor_secret_key")
 USER_AGENTS = [
@@ -488,7 +488,7 @@ def run_monitor_periodic(user_id):
             
             # 等待间隔时间再次执行
             time.sleep(CHECK_INTERVAL * 60)
-    except Exception as e:
+    except Exception as e: 
         # 发生错误时更新状态为停止
         logger.error(f"监控线程异常: {str(e)}")
         DBHelper.execute_query(
