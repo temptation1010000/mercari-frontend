@@ -132,9 +132,9 @@ async def get_page_content(url):
     try:
         logger.info(f"正在获取页面: {url}")
         async with async_playwright() as p:
-            # 使用有头浏览器模式
+            # 使用无头浏览器模式
             browser = await p.chromium.launch(
-                headless=False,  # 改为有头模式以避免检测
+                headless=True,  # 改回无头模式以在服务器环境中运行
                 args=[
                     '--no-sandbox', 
                     '--disable-dev-shm-usage',
