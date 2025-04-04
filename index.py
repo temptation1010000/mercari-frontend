@@ -32,8 +32,8 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("mercari_monitor.log"),
-        logging.StreamHandler()  # 恢复控制台输出
+        logging.FileHandler("mercari_monitor.log")
+        # 移除控制台输出
     ]
 )
 logger = logging.getLogger(__name__)
@@ -128,125 +128,46 @@ def create_database():
     conn.close()
 
 async def get_page_content(url):
-    """获取页面内容的异步函数，增强反爬虫绕过能力"""
+    """获取页面内容的异步函数"""
     try:
         logger.info(f"正在获取页面: {url}")
         async with async_playwright() as p:
-            # 使用无头浏览器模式
             browser = await p.chromium.launch(
-                headless=True,  # 改回无头模式以在服务器环境中运行
-                args=[
-                    '--no-sandbox', 
-                    '--disable-dev-shm-usage',
-                    '--disable-blink-features=AutomationControlled',  # 禁用自动化控制特征
-                    '--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"'
-                ]
+                headless=True,
+                args=['--no-sandbox', '--disable-dev-shm-usage']
             )
             
-            # 创建更真实的浏览器环境
             context = await browser.new_context(
-                locale="ja-JP",  # 使用日语区域
-                timezone_id="Asia/Tokyo",  # 设置东京时区
+                user_agent=random.choice(USER_AGENTS),
                 viewport={'width': 1280, 'height': 800},
                 bypass_csp=True
             )
             
-            # 增强的反检测脚本
-            await context.add_init_script("""
-                // 覆盖webdriver属性
-                Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-                
-                // 添加伪造的插件
-                Object.defineProperty(navigator, 'plugins', { 
-                    get: () => [1, 2, 3, 4, 5].map(() => ({
-                        name: 'Plugin',
-                        description: 'Description',
-                        filename: 'plugin.dll'
-                    }))
-                });
-                
-                // 设置语言为日语
-                Object.defineProperty(navigator, 'languages', { 
-                    get: () => ['ja-JP', 'ja', 'en-US', 'en'] 
-                });
-                
-                // 添加伪造的指纹信息
-                const originalQuery = window.navigator.permissions.query;
-                window.navigator.permissions.query = (parameters) => (
-                    parameters.name === 'notifications' ?
-                        Promise.resolve({ state: Notification.permission }) :
-                        originalQuery(parameters)
-                );
-            """)
-            
+            await context.add_init_script("Object.defineProperty(navigator, 'webdriver', { get: () => undefined });")
             page = await context.new_page()
             
-            # 添加随机鼠标移动模拟真实用户
-            await page.evaluate("""
-                function simulateHumanMovement() {
-                    const events = ['mousemove', 'scroll'];
-                    const event = events[Math.floor(Math.random() * events.length)];
-                    
-                    if (event === 'mousemove') {
-                        const x = Math.floor(Math.random() * window.innerWidth);
-                        const y = Math.floor(Math.random() * window.innerHeight);
-                        const event = new MouseEvent('mousemove', {
-                            view: window,
-                            bubbles: true,
-                            cancelable: true,
-                            clientX: x,
-                            clientY: y
-                        });
-                        document.dispatchEvent(event);
-                    } else if (event === 'scroll') {
-                        window.scrollBy(0, (Math.random() - 0.5) * 100);
-                    }
-                }
-                
-                setInterval(simulateHumanMovement, 500);
-            """)
+            await page.goto(url, wait_until='domcontentloaded')
             
-            # 使用更可靠的页面加载策略
-            await page.goto(url, wait_until='networkidle', timeout=30000)
-            
-            logger.info("等待页面完全加载...")
-            await page.wait_for_timeout(5000)  # 等待5秒确保JS加载完成
-            
-            # 执行滚动操作来触发懒加载内容
-            await page.evaluate("""
-                // 慢慢滚动以触发懒加载
-                function smoothScroll() {
-                    const height = document.body.scrollHeight;
-                    const steps = 10;
-                    for(let i = 0; i < steps; i++) {
-                        setTimeout(() => {
-                            window.scrollTo(0, (height/steps) * i);
-                        }, i * 300);
-                    }
-                    setTimeout(() => window.scrollTo(0, 0), steps * 300);
-                }
-                smoothScroll();
-            """)
-            
-            # 再等待加载完成
+            # 仅保留等待商品元素加载的机制
             logger.info("等待商品元素加载...")
             try:
-                await page.wait_for_selector('[data-testid="item-cell"]', timeout=20000)
-                logger.info("商品元素已成功加载")
-                # 找到元素后立即获取
-                html_content = await page.evaluate("() => document.documentElement.outerHTML")
-                logger.info(f"成功获取商品页面，长度: {len(html_content)}")
+                # 等待商品元素出现，最长等待15秒
+                await page.wait_for_selector('[data-testid="item-cell"]', timeout=15000)
+                logger.info("商品元素已加载")
             except Exception as wait_error:
                 logger.warning(f"等待商品元素超时: {str(wait_error)}")
-                # 超时后也获取内容（用于调试）
-                html_content = await page.evaluate("() => document.documentElement.outerHTML")
-                logger.info(f"获取页面成功，但无商品元素，长度: {len(html_content)}")
+                # 即使超时也继续，因为可能是没有商品或其他原因
             
-            # 保存截图和HTML
+            # 获取页面HTML
+            html_content = await page.content()
+            logger.info(f"获取页面成功，长度: {len(html_content)}")
+            
+            # 始终保存调试信息
             await page.screenshot(path="mercari_screenshot.png", full_page=True)
             with open("mercari_debug.html", "w", encoding="utf-8") as f:
                 f.write(html_content)
                 
+            # 将完整HTML内容也保存下来以便调试
             with open("mercari_full_debug.html", "w", encoding="utf-8") as f:
                 f.write(html_content)
             
