@@ -200,13 +200,17 @@ def parse_products(html):
     
     logger.info(f"找到 {len(items)} 个商品项")
     
+    # 统计无效ID的商品数量，而不是每个都输出警告
+    invalid_id_count = 0
+    
     # 遍历每个找到的商品项
     for idx, item in enumerate(items):
         try:
             # 1. 提取商品ID - 只从merItemThumbnail的id属性获取
             thumbnail = item.select_one('.merItemThumbnail')
             if not thumbnail or not thumbnail.has_attr('id'):
-                logger.warning(f"商品 #{idx} 没有有效ID，跳过")
+                # 静默跳过没有ID的商品，不输出警告
+                invalid_id_count += 1
                 continue
             
             product_id = thumbnail.get('id')
@@ -271,6 +275,9 @@ def parse_products(html):
             continue
     
     # 统计和记录
+    if invalid_id_count > 0:
+        logger.info(f"跳过了 {invalid_id_count} 个无效ID的商品项")
+    
     logger.info(f"总共解析到 {len(products)} 个有效商品")
     if not products:
         logger.error("未解析到任何商品，检查解析函数")
