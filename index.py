@@ -12,7 +12,7 @@ import random
 import smtplib
 import string
 import base64
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
@@ -40,7 +40,7 @@ logger = logging.getLogger(__name__)
 
 # 配置信息
 DB_NAME = "mercari_monitor.db"
-CHECK_INTERVAL = 0
+CHECK_INTERVAL = 0.1
 # 添加JWT密钥
 SECRET_KEY = os.environ.get("SECRET_KEY", "mercari_monitor_secret_key")
 USER_AGENTS = [
@@ -534,24 +534,29 @@ def stop_monitoring(user_id):
 
 def update_monitor_status(user_id, is_running):
     """更新监控状态"""
-    current_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
-    
-    # 确保表存在
-    DBHelper.execute_query(
-        '''CREATE TABLE IF NOT EXISTS monitor_status 
-        (user_id INTEGER PRIMARY KEY, is_running BOOLEAN, 
-        last_check TEXT, new_products INTEGER)''',
-        commit=True
-    )
-    
-    # 更新状态
-    DBHelper.execute_query(
-        '''INSERT OR REPLACE INTO monitor_status 
-        (user_id, is_running, last_check, new_products) 
-        VALUES (?, ?, ?, ?)''',
-        (user_id, is_running, current_time, 0),
-        commit=True
-    )
+    try:
+        current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+        
+        # 确保表存在
+        DBHelper.execute_query(
+            '''CREATE TABLE IF NOT EXISTS monitor_status 
+            (user_id INTEGER PRIMARY KEY, is_running BOOLEAN, 
+            last_check TEXT, new_products INTEGER)''',
+            commit=True
+        )
+        
+        # 更新状态
+        DBHelper.execute_query(
+            '''INSERT OR REPLACE INTO monitor_status 
+            (user_id, is_running, last_check, new_products) 
+            VALUES (?, ?, ?, ?)''',
+            (user_id, is_running, current_time, 0),
+            commit=True
+        )
+        return True
+    except Exception as e:
+        logger.error(f"更新监控状态失败: {str(e)}")
+        return False
 
 # 生成随机验证码
 def generate_verification_code(length=6):
@@ -837,7 +842,7 @@ def api_login():
                 'username': username,
                 'userId': user[0],
                 'isAdmin': is_admin,
-                'exp': datetime.utcnow() + timedelta(days=30)
+                'exp': datetime.now(timezone.utc) + timedelta(days=30)
             }
             
             # 使用SECRET_KEY签名JWT令牌
