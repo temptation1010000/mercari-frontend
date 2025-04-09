@@ -152,7 +152,7 @@ async def get_page_content(url):
             logger.info("等待商品元素加载...")
             try:
                 # 等待商品元素出现，最长等待15秒
-                await page.wait_for_selector('data-testid="item-cell"', timeout=15000)
+                await page.wait_for_selector('[data-testid="item-cell"]', timeout=15000)
                 logger.info("商品元素已加载")
             except Exception as wait_error:
                 logger.warning(f"等待商品元素超时: {str(wait_error)}")

@@ -54,3 +54,93 @@ Call log:
 2025-04-10 00:08:49,590 - INFO - 127.0.0.1 - - [10/Apr/2025 00:08:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
 2025-04-10 00:08:55,164 - INFO - 127.0.0.1 - - [10/Apr/2025 00:08:55] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
 2025-04-10 00:08:55,164 - INFO - 127.0.0.1 - - [10/Apr/2025 00:08:55] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:33,117 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.46.133:5000
+2025-04-10 00:12:33,117 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-10 00:12:33,120 - INFO -  * Restarting with stat
+2025-04-10 00:12:34,407 - WARNING -  * Debugger is active!
+2025-04-10 00:12:34,418 - INFO -  * Debugger PIN: 691-031-155
+2025-04-10 00:12:39,611 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:39] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:39,622 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:39] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:46,874 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:46] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:46,879 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:46] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:49,503 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:49] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:49,514 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:49] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:51,819 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:51] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:51,822 - DEBUG - Using selector: EpollSelector
+2025-04-10 00:12:51,826 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-10 00:12:51,826 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-10 00:12:51,826 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-10 00:12:52,382 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:52] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:12:54,368 - INFO - 等待商品元素加载...
+2025-04-10 00:12:59,600 - INFO - 127.0.0.1 - - [10/Apr/2025 00:12:59] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:13:00,665 - INFO - 127.0.0.1 - - [10/Apr/2025 00:13:00] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:13:09,067 - INFO - 127.0.0.1 - - [10/Apr/2025 00:13:09] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:13:09,115 - INFO - 127.0.0.1 - - [10/Apr/2025 00:13:09] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:13:09,445 - WARNING - 等待商品元素超时: Page.wait_for_selector: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator("data-testid=\"item-cell\"") to be visible
+
+2025-04-10 00:13:12,543 - INFO - 获取页面成功，长度: 245580
+2025-04-10 00:13:19,758 - INFO - 127.0.0.1 - - [10/Apr/2025 00:13:19] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:13:19,764 - INFO - 127.0.0.1 - - [10/Apr/2025 00:13:19] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:18,218 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.3.215:5000
+2025-04-10 00:28:18,218 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-10 00:28:18,218 - INFO -  * Restarting with stat
+2025-04-10 00:28:18,466 - WARNING -  * Debugger is active!
+2025-04-10 00:28:18,468 - INFO -  * Debugger PIN: 405-441-999
+2025-04-10 00:28:35,635 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:35] "[33mGET /assets/hero-illustration.png HTTP/1.1[0m" 404 -
+2025-04-10 00:28:36,915 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:36] "POST /api/login HTTP/1.1" 200 -
+2025-04-10 00:28:37,519 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:37] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:37,520 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:37] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:38,608 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:38] "POST /api/monitor/start?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:38,608 - DEBUG - Using selector: EpollSelector
+2025-04-10 00:28:38,608 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-10 00:28:38,608 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-10 00:28:38,608 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-10 00:28:38,615 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:38] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:41,114 - INFO - 等待商品元素加载...
+2025-04-10 00:28:44,827 - INFO - 商品元素已加载
+2025-04-10 00:28:44,840 - INFO - 获取页面成功，长度: 175005
+2025-04-10 00:28:48,165 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:48] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:48,165 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:48] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:51,413 - DEBUG - 成功获取HTML内容，长度: 175005
+2025-04-10 00:28:51,445 - INFO - 找到 119 个商品项
+2025-04-10 00:28:51,446 - INFO - 解析到商品: キュアプリズム アニメージュ 缶バッジ (¥15,555)
+2025-04-10 00:28:51,447 - INFO - 解析到商品: ハイキュー！！スクエア缶バッジ【BOX】第一弾　セブンネット... (¥22,650)
+2025-04-10 00:28:51,447 - INFO - 解析到商品: あんスタ 神崎颯馬 ぱしゃこれ ぱしゃっつ 256枚 (¥6,660)
+2025-04-10 00:28:51,448 - INFO - 解析到商品: セガラッキーくじ 呪術廻戦 伏黒恵 まとめ売り (¥1,222)
+2025-04-10 00:28:51,448 - INFO - 解析到商品: NAMCO Relax time～ ハート缶バッジ サトノダ... (¥3,999)
+2025-04-10 00:28:51,448 - INFO - 解析到商品: NAMCO Relax time～ ハート缶バッジ ヴィブロ... (¥999)
+2025-04-10 00:28:51,449 - INFO - 解析到商品: メルヘン　缶バッジ　昭和レトロ　ファンシー　イラスト (¥1,499)
+2025-04-10 00:28:51,449 - INFO - 解析到商品: 銀魂 ジャンプ オールスター缶バッジ ホロ缶バッジ JCS限... (¥15,500)
+2025-04-10 00:28:51,450 - INFO - 解析到商品: うちっちー 缶バッチ 6種類 実写あり (¥1,000)
+2025-04-10 00:28:51,450 - INFO - 解析到商品: 我らが広島カープ応援マスク 背番号9 (¥850)
+2025-04-10 00:28:51,450 - INFO - 解析到商品: Obey Me! おべいみー アイタイくん ぬいぐるみ 全種... (¥35,599)
+2025-04-10 00:28:51,451 - INFO - 解析到商品: JO1 川尻蓮 缶バッジ (¥600)
+2025-04-10 00:28:51,451 - INFO - 解析到商品: にじさんじ ChroNoiR 4周年 缶バッジ 叶 2個セッ... (¥1,111)
+2025-04-10 00:28:51,451 - INFO - 解析到商品: ピオフィオーレの晩鐘 ダンテ 缶バッジ 5個 (¥2,800)
+2025-04-10 00:28:51,452 - INFO - 解析到商品: 僕のヒーローアカデミア ヒロアカ 轟焦凍 セガコラボカフェ ... (¥3,600)
+2025-04-10 00:28:51,458 - INFO - 跳过了 104 个无效ID的商品项
+2025-04-10 00:28:51,458 - INFO - 总共解析到 15 个有效商品
+2025-04-10 00:28:51,458 - INFO - 解析到 15 个有效商品
+2025-04-10 00:28:51,458 - INFO - 商品示例: キュアプリズム アニメージュ 缶バッジ (¥15,555)
+2025-04-10 00:28:51,472 - INFO - 发现 15 个新商品，准备发送邮件
+2025-04-10 00:28:52,830 - INFO - 成功发送新品通知邮件到: momo198002@163.com
+2025-04-10 00:28:52,842 - INFO - 抓取完成，耗时: 14.23秒
+2025-04-10 00:28:58,163 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:58] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:58,164 - INFO - 127.0.0.1 - - [10/Apr/2025 00:28:58] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:28:58,854 - DEBUG - Using selector: EpollSelector
+2025-04-10 00:28:58,854 - INFO - 开始监控用户 ID 1，关键词: 缶バッジ
+2025-04-10 00:28:58,854 - INFO - 请求URL: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-10 00:28:58,854 - INFO - 正在获取页面: https://jp.mercari.com/search?search_condition_id=1cx0xHGsd57y244OQ44OD44K4
+2025-04-10 00:29:04,192 - INFO - 127.0.0.1 - - [10/Apr/2025 00:29:04] "POST /api/monitor/stop?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:29:04,197 - INFO - 127.0.0.1 - - [10/Apr/2025 00:29:04] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:29:06,047 - INFO - 等待商品元素加载...
+2025-04-10 00:29:08,164 - INFO - 127.0.0.1 - - [10/Apr/2025 00:29:08] "GET /api/monitor/status?username=momo9144 HTTP/1.1" 200 -
+2025-04-10 00:29:08,165 - INFO - 127.0.0.1 - - [10/Apr/2025 00:29:08] "GET /api/monitor/avg_time?username=momo9144 HTTP/1.1" 200 -
